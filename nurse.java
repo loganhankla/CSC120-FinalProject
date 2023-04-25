@@ -1,3 +1,5 @@
+import Locations.healthCenter;
+
 public class nurse extends person {
     
     public int wallet;
@@ -11,7 +13,11 @@ public class nurse extends person {
     }
 
     public void buy(String item){
-        
+        //scanner input
+        if(healthCenter.supplyStore.contains(item)){
+            healthCenter.inventory.put(item, 1);
+            // if enough in wallet
+        }
     }
 
     public String getTreatOptions();

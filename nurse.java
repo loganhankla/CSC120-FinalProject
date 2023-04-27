@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class nurse extends person {
     
     public int wallet;
-    public int successPoints;
-    private int campersTreated;
+    private int successPoints;
+   // private int campersTreated;
     
     public nurse(String name){
         super(name);
@@ -33,7 +33,6 @@ public class nurse extends person {
 
         in.close();
 
-
         //scanner input
        // if(healthCenter.supplyStore.contains(item)){
         //    healthCenter.inventory.put(item, 1);
@@ -41,15 +40,41 @@ public class nurse extends person {
      //   }
     }
 
-    public void getTreatOptions(){
-        System.out.println("* disinfect" + "\n * bandaid");
+
+    public void dismiss(){
+        //tells camper they're done, sends them out camper.exit()
+        //increase camper treated # and update success points
     }
+
+    public void next(){
+        //initialize & calls next camper in to health center, enter()
+    }
+
+    public void intake(){
+        // ask camper for primary complaint, response should give random from camper complain()
+    }
+    
+    public void evaluate(){
+        // ask camper for more details, to show how impacting, helps to determine severity of malady
+    }
+
+    public void treat(){
+        // choose how to treat the camper by using items in the inventory
+        // should camper have attribute of how well treated? like if sent home/bandaid/shake it off, appropriate?
+        // should adjust nurse's success points
+        // adjust camper health points?
+    }
+
+    public void seePoints(){
+        System.out.println("You currently have " + this.successPoints + " success points.");
+    }
+    
        
     public static void main(String[] args) {
         nurse becky = new nurse("Becky");
-       // becky.getTreatOptions();
        becky.seeWallet();
        becky.enter();
+       becky.seePoints();
     }
 
 

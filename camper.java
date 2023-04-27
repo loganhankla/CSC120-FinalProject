@@ -3,8 +3,10 @@ import java.util.Random;
 
 public class camper extends person {
 
-    private int severity;
+    public int severity;
     private int HP; //Health Points
+    public String primaryComplaint;
+    //public String explanation;
 
 
     public camper(String name){
@@ -13,18 +15,112 @@ public class camper extends person {
         this.HP = 100; // make Random?
     }
 
+    
     public void complain(){
-        String[] initialComplaint = {"My ankle hurts."}; //add more and maybe more detail? 
-        // how to give responses to any follow up questions from nurse? and how to differentiate severity levels
+        String[] possibleComplaints = {"ankle", "stomach", "arm", "rash", "head"};
         Random complaint = new Random();
-        int index = complaint.nextInt(initialComplaint.length);
-        System.out.println(initialComplaint[index]);  //maybe make a way to remove that complaint so they don't get repeats?
+        int index = complaint.nextInt(possibleComplaints.length);
+        this.primaryComplaint = possibleComplaints[index];
+        System.out.println("My " + possibleComplaints[index] + " is bothering me.");
+        // should set this.camper's primaryComplaint, generated randomly from a list of complaints
+
+        //so if primaryComplaint is ankle, prints My ankle hurts.
+        
+        //String[] initialComplaint = {"My ankle hurts."}; //add more and maybe more detail? 
+        // how to give responses to any follow up questions from nurse? and how to differentiate severity levels
+      //  Random complaint = new Random();
+       // int index = complaint.nextInt(initialComplaint.length);
+       // System.out.println(initialComplaint[index]);  //maybe make a way to remove that complaint so they don't get repeats?
+
+    }
+
+    public void getHP(){
+        System.out.println("HP: " + this.HP + "/100");
+    }
+    
+    public void getArmExplanation(){
+        if(this.severity == 1){
+            System.out.println("\"My arm hurts right here. I fell when we were hiking up to the pond.\" The camper points to their forearm just below the elbow, where you notice a small scratch and some blood.");
+        } else{
+            if(this.severity == 2){
+                System.out.println("\"I'm bleeding a lot right here, and it's really stinging. We were making a cookout dinner at our camp site, and I cut myself with the knife when I was cutting the chicken.\" \nYou take a closer look and notice lots of blood. There is a two-inch long cut down the length of the arm. It is a fairly deep cut but not dangerously so if treated appropriately.");
+            } else{
+                System.out.println("\"We were doing the low ropes course as a group, and I was the one doing the trust fall. I was falling, but I don't know what happened, and they didn't catch me.\" \nYou notice the camper is holding their arm close to their chest. \n\"I tried to break my fall, and I heard a popping sound. It hurts so bad. Right here.\" \nThe camper lets out a cry and points at a specific spot on their forearm. You gingerly take their arm in your grasp and notice a bump. Something looks out of place.");
+            }
+        }
+
+    }
+    
+    public int getSeverity(){
+        //randomly generates severity level from 1-3
+        Random rand = new Random();
+        this.severity = rand.nextInt((3 - 1) + 1) + 1;
+        System.out.println("Severity: " + this.severity);
+    
+        // decreases HP depending on severity
+        if(this.severity == 1){
+            this.HP -= 10;
+        } else{
+            if(this.severity == 2){
+                this.HP -= 30;
+            } else{
+                this.HP -= 50;
+            }
+        }
+
+        return this.severity;
+    }
+    
+    public void explain(){
+        // should set this.camper's explanation, using getSeverity(), gives different explanations of primaryComplaint
+        // if primaryComplaint is ankle, severity 3 is a break, severity 2 is a sprain, severity 1 is a walk it off/bruise/scrape
+        if(this.primaryComplaint == "arm"){
+            getArmExplanation();
+        } else{
+            if(this.primaryComplaint == "stomach"){
+                getStomachExplanation();
+            } else{
+                if(this.primaryComplaint == "ankle"){
+                    getAnkleExplanation();
+                } else{
+                    if(this.primaryComplaint == "rash"){
+                        getRashExplanation();
+                    } else{
+                        if(this.primaryComplaint == "head"){
+                            getHeadExplanation();
+                        } else{
+                            throw new RuntimeException("This primary complaint doesn't exist.");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void getHeadExplanation(){
+
+    }
+
+    public void getRashExplanation(){
+
+    }
+    
+    public void getAnkleExplanation(){
+
+    }
+
+    public void getStomachExplanation(){
 
     }
 
     public static void main(String[] args) {
         camper matilda = new camper("Matilda");
         matilda.enter();
+        matilda.getSeverity();
+        matilda.getHP();
+        matilda.complain();
+        matilda.primaryComplaint = "arm";
+        matilda.getArmExplanation();
     }
     
 }

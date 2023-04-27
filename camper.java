@@ -16,7 +16,9 @@ public class camper extends person {
     }
 
     
-    public void complain(){
+    //give camper name?
+
+    public static complain(){
         String[] possibleComplaints = {"ankle", "stomach", "arm", "rash", "head"};
         Random complaint = new Random();
         int index = complaint.nextInt(possibleComplaints.length);
@@ -96,7 +98,9 @@ public class camper extends person {
     }
 
     public void getHeadExplanation(){
-
+        if(this.severity == 1){
+            
+        }
     }
 
     public void getRashExplanation(){

@@ -22,22 +22,17 @@ public class camper extends person {
         int index = complaint.nextInt(possibleComplaints.length);
         this.primaryComplaint = possibleComplaints[index];
         System.out.println("My " + possibleComplaints[index] + " is bothering me.");
-        // should set this.camper's primaryComplaint, generated randomly from a list of complaints
+        // set this.camper's primaryComplaint, generated randomly from a list of complaints
 
-        //so if primaryComplaint is ankle, prints My ankle hurts.
-        
-        //String[] initialComplaint = {"My ankle hurts."}; //add more and maybe more detail? 
-        // how to give responses to any follow up questions from nurse? and how to differentiate severity levels
-      //  Random complaint = new Random();
-       // int index = complaint.nextInt(initialComplaint.length);
-       // System.out.println(initialComplaint[index]);  //maybe make a way to remove that complaint so they don't get repeats?
-
+        //add more and maybe more detail? 
     }
 
+    /** Prints the camper's health points */
     public void getHP(){
         System.out.println("HP: " + this.HP + "/100");
     }
-    
+   
+    /** Prints the camper's more in-depth explanation of their primary complaint depending on the level of severity. */
     public void getArmExplanation(){
         if(this.severity == 1){
             System.out.println("\"My arm hurts right here. I fell when we were hiking up to the pond.\" The camper points to their forearm just below the elbow, where you notice a small scratch and some blood.");
@@ -51,6 +46,9 @@ public class camper extends person {
 
     }
     
+    /** Randomly determines the level of severity for the primary complaint and decreases health points accordingly.
+     * @return severity int 1-3
+     */
     public int getSeverity(){
         //randomly generates severity level from 1-3
         Random rand = new Random();

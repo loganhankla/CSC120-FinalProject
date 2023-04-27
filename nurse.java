@@ -51,6 +51,7 @@ public class nurse extends person {
     }
 
     public void intake(){
+        // after next(), if scanner input asks for malady
         // ask camper for primary complaint, response should give random from camper complain()
     }
     

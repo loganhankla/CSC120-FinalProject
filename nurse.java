@@ -43,7 +43,7 @@ public class Nurse extends Person {
         in.close();
 
         //scanner input
-       // if(healthCenter.supplyStore.contains(item)){
+       // if(healthCenter.supplyStore.contains(item) & this.wallet >= supplyStore.getValue()){
         //    healthCenter.inventory.put(item, 1);
             // if enough in wallet
      //   }
@@ -52,8 +52,22 @@ public class Nurse extends Person {
 
     public void dismiss(){
         //tells camper they're done, sends them out camper.exit()
-        //increase camper treated # and update success points
-
+        //update success points
+        this.campersTreated += 1;
+        c.setHP(10); // increase HP dependingon treatment?
+        System.out.println(c.name + " smiles at you and exits the health center.");
+        c.exit();
+        if(campersTreated < 5){
+            System.out.println("Are you ready for the next camper?");
+            System.out.println("You have " + this.successPoints)
+        } else{
+            System.out.println("You have completed the game.");
+            if(this.successPoints >= 80){
+                System.out.println("Congratulations! You won!!");
+            } else{
+                System.out.println("You FAILED.");
+            }
+        }
         // ask if nurse is ready for next camper, if so, next() but only until campersTreated = 5 or successPoints = 100 or something
     }
 

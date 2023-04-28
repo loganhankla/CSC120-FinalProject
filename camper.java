@@ -8,6 +8,10 @@ public class Camper extends Person {
     //public String explanation;
 
 
+    public void setHP(int hp){
+        this.HP += hp;
+    }
+    
     public Camper(String name){
         super(name);
         this.severity = 0; // make Random?

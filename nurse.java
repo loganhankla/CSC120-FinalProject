@@ -1,19 +1,20 @@
 import java.util.Scanner;
 
-public class nurse extends person {
+public class Nurse extends Person {
     
     public int wallet;
     private int successPoints;
-   // private int campersTreated;
+    private int campersTreated;
     
    /** Nurse constructor
     * @param name Nurse's name
     */ 
-   public nurse(String name){
-        super(name);
+   public Nurse(String name){
+        super(name); 
         this.wallet = 200;
         this.successPoints = 0;
         this.campersTreated = 0;
+        this.inHealthCenter = true;
 
     }
 
@@ -56,16 +57,14 @@ public class nurse extends person {
         // ask if nurse is ready for next camper, if so, next() but only until campersTreated = 5 or successPoints = 100 or something
     }
 
-    public void next(){
-        // Random camper name?
-      //  camper parker = new camper("Parker");
-        System.out.println("something");
-       // parker.enter();
-        System.out.println("A camper walks in.");
+    public void next(Camper c){
+        // Random camper name? 
+        c.enter();
+        System.out.println("A camper, " + c + ", walks in.");
         //initialize & calls next camper in to health center, enter()
     }
 
-    public void intake(){
+    public void intake(Camper c){
         // after next(), if scanner input asks for malady
         // ask camper for primary complaint, response should give random from camper complain()
     }
@@ -87,11 +86,14 @@ public class nurse extends person {
     
        
     public static void main(String[] args) {
-        nurse becky = new nurse("Becky");
+        Nurse becky = new Nurse("Becky");
         becky.seeWallet();
         becky.enter();
         becky.seePoints();
-        becky.next();
+        Camper c = new Camper("Parker");
+        System.out.println(c);
+        becky.next(c);
+        System.out.println("something main");
     }
 
 

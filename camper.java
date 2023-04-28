@@ -1,7 +1,6 @@
 import java.util.Random;
 
-
-public class camper extends person {
+public class Camper extends Person {
 
     public int severity;
     private int HP; //Health Points
@@ -9,16 +8,21 @@ public class camper extends person {
     //public String explanation;
 
 
-    public camper(String name){
+    public Camper(String name){
         super(name);
         this.severity = 0; // make Random?
         this.HP = 100; // make Random?
+        this.inHealthCenter = false;
+    }
+
+    public String toString(){
+        return this.name;
     }
 
     
     //give camper name?
 
-    public static complain(){
+    public void complain(){
         String[] possibleComplaints = {"ankle", "stomach", "arm", "rash", "head"};
         Random complaint = new Random();
         int index = complaint.nextInt(possibleComplaints.length);
@@ -116,7 +120,7 @@ public class camper extends person {
     }
 
     public static void main(String[] args) {
-        camper matilda = new camper("Matilda");
+        Camper matilda = new Camper("Matilda");
         matilda.enter();
         matilda.getSeverity();
         matilda.getHP();

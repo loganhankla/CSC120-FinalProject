@@ -1,9 +1,38 @@
 //import People.director;
+import java.util.ArrayList;
+
 
 public class Game {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Camp Purple Mountain! This summer, you've been hired as the camp nurse. It's your job to evaluate and treat campers so they remain happy and healthy.");
-       // System.out.println("You stand outside the Main Lodge, a large wooden cabin with a green roof. The Camp Director, Ruddy, is in her office. It's your first day, and you're supposed to check in with her before beginning your responsibilities.");
 
+    private ArrayList<Camper> campers;
+    
+    public Game(){
+        this.makeNames();
+    }
+
+    public void makeNames(){
+        //make ArrayList of camper names
+        this.campers = new ArrayList<Camper>();
+        this.campers.add(new Camper("Brian")); 
+        this.campers.add(new Camper("Samantha")); 
+        this.campers.add(new Camper("Madeleine")); 
+        this.campers.add(new Camper ("Adrienne")); 
+        this.campers.add(new Camper ("Willa")); 
+        //System.out.println(this.camperNames);
+       // return this.camperNames;
+    }
+
+    public String toString(){
+        return "Camper Names are: " + campers;
+    }
+
+    public static void main(String[] args) {
+        //Camper c = new Camper("Parker");
+        Nurse becky = new Nurse("Becky");
+        Game game = new Game();
+        System.out.println(game.toString());
+        becky.next(game.campers.get(0));
+        
+        
     }
 }

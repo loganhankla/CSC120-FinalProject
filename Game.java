@@ -1,13 +1,19 @@
 //import People.director;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Game {
 
     private ArrayList<Camper> campers;
+    private Nurse becky;
+    private HealthCenter hCenter;
     
     public Game(){
         this.makeNames();
+        this.becky = new Nurse("Becky");
+        this.hCenter = new HealthCenter();
+        this.becky.setHC(this.hCenter);
     }
 
     public void makeNames(){
@@ -26,12 +32,18 @@ public class Game {
         return "Camper Names are: " + campers;
     }
 
+    public void play(){
+        Scanner in = new Scanner(System.in);
+        String userInput = in.nextLine().toUpperCase();
+        // if else for user inputs "USE" "BUY"
+    }
+
     public static void main(String[] args) {
         //Camper c = new Camper("Parker");
-        Nurse becky = new Nurse("Becky");
+        
         Game game = new Game();
         System.out.println(game.toString());
-        becky.next(game.campers.get(0));
+        game.becky.next(game.campers.get(0));
         
         
     }

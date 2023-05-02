@@ -3,11 +3,11 @@ import java.util.Hashtable;
 //import javax.swing.RowFilter.Entry;
 
 
-public class healthCenter {
+public class HealthCenter {
     public Hashtable<String, Integer> inventory; //int is stock number
     public Hashtable<String, Integer> supplyStore; // int is price
 
-    public healthCenter(){
+    public HealthCenter(){
         this.inventory = new Hashtable<String, Integer>();
         this.supplyStore = new Hashtable<String, Integer>();
         this.supplyStore.put("aloe", 10);
@@ -34,7 +34,7 @@ public void seeSupplyStore(){
 }
 
     public static void main(String[] args) {
-        healthCenter healthCenter = new healthCenter();
+        HealthCenter healthCenter = new HealthCenter();
         healthCenter.seeSupplyStore();
     }
 }

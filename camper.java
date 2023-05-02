@@ -44,10 +44,10 @@ public class Camper extends Person {
    
     /** Prints the camper's more in-depth explanation of their primary complaint depending on the level of severity. */
     public void getArmExplanation(){
-        if(this.severity.equals(1)){
+        if(this.severity == 1){
             System.out.println("\"My arm hurts right here. I fell when we were hiking up to the pond.\" The camper points to their forearm just below the elbow, where you notice a small scratch and some blood.");
         } else{
-            if(this.severity.equals(2)){
+            if(this.severity == 2){
                 System.out.println("\"I'm bleeding a lot right here, and it's really stinging. We were making a cookout dinner at our camp site, and I cut myself with the knife when I was cutting the chicken.\" \nYou take a closer look and notice lots of blood. There is a two-inch long cut down the length of the arm. It is a fairly deep cut but not dangerously so if treated appropriately.");
             } else{
                 System.out.println("\"We were doing the low ropes course as a group, and I was the one doing the trust fall. I was falling, but I don't know what happened, and they didn't catch me.\" \nYou notice the camper is holding their arm close to their chest. \n\"I tried to break my fall, and I heard a popping sound. It hurts so bad. Right here.\" \nThe camper lets out a cry and points at a specific spot on their forearm. You gingerly take their arm in your grasp and notice a bump. Something looks out of place.");
@@ -66,7 +66,7 @@ public class Camper extends Person {
         System.out.println("Severity: " + this.severity);
     
         // decreases HP depending on severity
-        if(this.severity == 1){
+        if(this.severity == 1){ // use .equals instead?
             this.HP -= 10;
         } else{
             if(this.severity == 2){
@@ -84,7 +84,7 @@ public class Camper extends Person {
         // if primaryComplaint is ankle, severity 3 is a break, severity 2 is a sprain, severity 1 is a walk it off/bruise/scrape
         if(this.primaryComplaint == "arm"){
             getArmExplanation();
-        } else{
+        } else{ // could do else if()
             if(this.primaryComplaint == "stomach"){
                 getStomachExplanation();
             } else{

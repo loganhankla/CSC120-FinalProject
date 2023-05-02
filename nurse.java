@@ -5,6 +5,8 @@ public class Nurse extends Person {
     public int wallet;
     private int successPoints;
     private int campersTreated;
+    private Camper c;
+    private HealthCenter hc;
     
    /** Nurse constructor
     * @param name Nurse's name
@@ -16,6 +18,10 @@ public class Nurse extends Person {
         this.campersTreated = 0;
         this.inHealthCenter = true;
 
+    }
+
+    public void setHC(HealthCenter h){
+        this.hc = h;
     }
 
     /** Prints the contents of the inventory, with items and number in stock. */
@@ -34,11 +40,24 @@ public class Nurse extends Person {
      */
     public void buy(String item){
         Scanner in = new Scanner(System.in);
-        String userInput = "";
-        while(!userInput.equals("")){ //is this what should be in here?
-            userInput = in.nextLine();
-        
+        String userInput = in.nextLine().toUpperCase();
+        if(userInput.equals("ALOE")){
+            //add if about wallet
+            // if(healthCenter.supplyStore.contains("aloe") & this.wallet >= supplyStore.getValue("aloe"))
+
+            if(this.hc.inventory.containsKey("aloe")){ // if there is already aloe in stock
+              //  healthCenter.inventory.put("aloe", value + 1); // increase the value by 1 to indicate multiple in stock
+            } else{
+                this.hc.inventory.put("aloe", 1); // if aloe not already in stock, add 1 aloe to inventory
+            }
+            //if inventory has key aloe, increase value +=1, if not
+
         }
+
+        //while(!userInput.equals("")){ //is this what should be in here?
+          //  userInput = in.nextLine();
+        
+        //}
 
         in.close();
 
@@ -54,12 +73,13 @@ public class Nurse extends Person {
         //tells camper they're done, sends them out camper.exit()
         //update success points
         this.campersTreated += 1;
-        c.setHP(10); // increase HP dependingon treatment?
+        this.c.setHP(10); // increase HP depending on treatment?
         System.out.println(c.name + " smiles at you and exits the health center.");
-        c.exit();
+        this.c.exit();
+        this.c = null;
         if(campersTreated < 5){
             System.out.println("Are you ready for the next camper?");
-            System.out.println("You have " + this.successPoints)
+            System.out.println("You have " + this.successPoints);
         } else{
             System.out.println("You have completed the game.");
             if(this.successPoints >= 80){
@@ -74,6 +94,7 @@ public class Nurse extends Person {
     public void next(Camper c){
         // Random camper name? 
         c.enter();
+        this.c = c;
         System.out.println("A camper, " + c + ", walks in.");
         //initialize & calls next camper in to health center, enter()
     }

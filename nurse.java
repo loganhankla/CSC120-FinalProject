@@ -38,34 +38,31 @@ public class Nurse extends Person {
      * Buys an item from the supply store one at a time, adds it to the inventory and decreases the appropriate amount from the wallet.
      * @param item Item to buy and put in inventory
      */
-    public void buy(String item){
+    public void buy(){
         Scanner in = new Scanner(System.in);
-        String userInput = in.nextLine().toUpperCase();
-        if(userInput.equals("ALOE")){
-            //add if about wallet
-            // if(healthCenter.supplyStore.contains("aloe") & this.wallet >= supplyStore.getValue("aloe"))
-
-            if(this.hc.inventory.containsKey("aloe")){ // if there is already aloe in stock
-              //  healthCenter.inventory.put("aloe", value + 1); // increase the value by 1 to indicate multiple in stock
+        // print what do u wanna buy
+        String userInput = in.nextLine();
+        if(!this.hc.supplyStore.containsKey(userInput)){
+            System.out.println("The store doesn't contain that item. Be sure to check your capitalization! What do you want to do next?");
+        } else if(this.hc.inventory.containsKey(userInput)){
+            if(this.wallet >= this.hc.supplyStore.get(userInput)){
+                this.hc.inventory.put(userInput, this.hc.inventory.get(userInput) + 1);
+            this.wallet -= this.hc.supplyStore.get(userInput); // subtract price of item from wallet
             } else{
-                this.hc.inventory.put("aloe", 1); // if aloe not already in stock, add 1 aloe to inventory
+                System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
-            //if inventory has key aloe, increase value +=1, if not
+        } else{
+            if(this.wallet >= this.hc.supplyStore.get(userInput)){
+                this.hc.inventory.put(userInput, 1);
+                this.wallet -= this.hc.supplyStore.get(userInput);
+            } else{
+                System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
+            }
+        }
 
         }
 
-        //while(!userInput.equals("")){ //is this what should be in here?
-          //  userInput = in.nextLine();
-        
-        //}
-
         in.close();
-
-        //scanner input
-       // if(healthCenter.supplyStore.contains(item) & this.wallet >= supplyStore.getValue()){
-        //    healthCenter.inventory.put(item, 1);
-            // if enough in wallet
-     //   }
     }
 
 

@@ -16,6 +16,10 @@ public class Game {
         this.becky.setHC(this.hCenter);
     }
 
+    public void printOptions(){
+        //buy, use, dismiss, intake, call next, ask more, check wallet
+    }
+
     public void makeNames(){
         //make ArrayList of camper names
         this.campers = new ArrayList<Camper>();

@@ -42,7 +42,7 @@ public class Game {
     public void play(){
         Scanner in = new Scanner(System.in);
         String userInput = in.nextLine().toUpperCase();
-        // if else for user inputs "USE" "BUY"
+        // if else for user inputs "USE" "BUY" "NEXT" "DISMISS" "WALLET" "INVENTORY" "SUPPLY STORE"
     }
 
     public static void main(String[] args) {
@@ -51,6 +51,9 @@ public class Game {
         Game game = new Game();
         //System.out.println(Game.toString());
         game.becky.next(game.campers.get(0));
+
+        // if "WALLET", this.becky.seeWallet?
+        // while loop of running, have scanner open and if statements
         
         
     }

@@ -60,6 +60,11 @@ public class Nurse extends Person {
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
         }
+            System.out.println("Are you done buying items for your inventory?");
+            if(userInput.toUpperCase().equals("YES")){ //game.userInput if from while loop?
+                System.out.println("Great!" + this.hc.seeInventory() + "\n You're ready to start seeing campers that need medical attention. Oh, look! There's one coming in right now!");
+                this.next();
+            }
             in.close();
         }
 
@@ -90,11 +95,29 @@ public class Nurse extends Person {
             c.enter();
            // this.c = game.campers.get(campersTreated + 1); //would move down index of arraylist, how to reference game?
             System.out.println("A camper, " + c + ", walks in.");
+            String userInput = in.nextLine();
+            if(userInput.toUpperCase().equals("INTAKE" | "WHAT'S WRONG?")){
+                c.intake();
+            } else{
+                System.out.println("The camper doesn't understand that command. Try asking them What's Wrong or Intake. ");
+                String userInput = in.nextLine();
+            }
+            in.close();
             
             //initialize & calls next camper in to health center, enter()
         }
     
-        public void intake(Camper c){
+        public void intake(){
+            this.c.complain();
+            String userInput = in.nextLine();
+            if(userInput.toUpperCase().contains("EXPLAIN" | "TELL ME MORE")){
+                this.c.explain();
+            } else{
+                System.out.println(this.c.name + " didn't understand that. Try asking them to explain or tell you more.");
+                String userInput = in.nextLine();
+            }
+
+            in.close();
             // after next(), if scanner input asks for malady
             // ask camper for primary complaint, response should give random from camper complain()
         }

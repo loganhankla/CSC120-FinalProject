@@ -26,6 +26,13 @@ public class HealthCenter {
     
     }
 
+public void seeInventory(){
+    System.out.println("Your inventory contains (item (number in stock)): \n");
+    this.inventory.entrySet().forEach( entry -> {
+        System.out.println(entry.getKey() + " (" + entry.getValue() + ")");
+    });
+}
+
 public void seeSupplyStore(){
     System.out.println("The Medical Supply Store has unlimited supply of the following items: \n ");
     this.supplyStore.entrySet().forEach( entry -> {

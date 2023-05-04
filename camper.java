@@ -55,13 +55,13 @@ public class Camper extends Person {
         this.severity = rand.nextInt((3 - 1) + 1) + 1;
         System.out.println("Severity: " + this.severity);
         
-
         return this.severity;
     }
     
     public void explain(){
         // should set this.camper's explanation, using getSeverity(), gives different explanations of primaryComplaint
         // if primaryComplaint is ankle, severity 3 is a break, severity 2 is a sprain, severity 1 is a walk it off/bruise/scrape
+        this.getSeverity();
         if(this.primaryComplaint == "arm"){
             getArmExplanation();
         } else{ // could do else if()
@@ -83,24 +83,57 @@ public class Camper extends Person {
                 }
             }
         }
+
+        System.out.println("\n Nurse, how would you like to treat the camper?");
+        //put Scanner in?
     }
 
     public void getHeadExplanation(){
         if(this.severity == 1){
-            
+            System.out.println("\"[EXPLANATION]");
+        } else{
+            if(this.severity == 2){
+                System.out.println("\" [EXPLANATION]");
+            } else{
+                System.out.println("[EXPLANATION]");
+            }
         }
     }
 
     public void getRashExplanation(){
-
+        if(this.severity == 1){
+            System.out.println("\"[EXPLANATION]");
+        } else{
+            if(this.severity == 2){
+                System.out.println("\" [EXPLANATION]");
+            } else{
+                System.out.println("[EXPLANATION]");
+            }
+        }
     }
     
     public void getAnkleExplanation(){
-
+        if(this.severity == 1){
+            System.out.println("\"[EXPLANATION]");
+        } else{
+            if(this.severity == 2){
+                System.out.println("[EXPLANATION]");
+            } else{
+                System.out.println("[EXPLANATION]");
+            }
+        }
     }
 
     public void getStomachExplanation(){
-
+        if(this.severity == 1){
+            System.out.println("\"[EXPLANATION]");
+        } else{
+            if(this.severity == 2){
+                System.out.println("\" [EXPLANATION]");
+            } else{
+                System.out.println("[EXPLANATION]");
+            }
+        }
     }
 
     public static void main(String[] args) {

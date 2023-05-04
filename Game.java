@@ -41,7 +41,7 @@ public class Game {
     public void play(){
         //Scanner in = new Scanner(System.in);
         //String userInput = in.nextLine().toUpperCase();
-        // if else for user inputs "USE" "BUY" "NEXT" "DISMISS" "WALLET" "INVENTORY" "SUPPLY STORE"
+        // if else for user inputs "USE" "BUY" "NEXT" 
 
         // while loop of running, have scanner open and if statements
 
@@ -64,10 +64,13 @@ public class Game {
                 this.becky.dismiss();
             } else if(userInput.contains("USE")){
                 // if .contains() items in inventory, maybe in use method in nurse
-            } else if(userInput.contains("INTAKE")){
+            } else if(userInput.contains("INTAKE") || userInput.equals("WHAT'S WRONG?")){
                 this.becky.intake(); // GETS PRIMARY COMPLAINT
+                // ONLY IF CAMPER IN?
             } else if(userInput.equals("EXPLAIN") || userInput.equals("TELL ME MORE") || userInput.equals("EVALUATE")){
                 this.becky.evaluate(); // GETS DETAILED EXPLANATION
+            } else if(userInput.equals("POINTS")){
+                this.becky.seePoints();
             }
 
             if(this.becky.campersTreated >= 5 || userInput.equals("QUIT")){ // terminates game play loop once treated enough

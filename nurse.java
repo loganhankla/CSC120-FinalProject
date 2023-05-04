@@ -27,7 +27,7 @@ public class Nurse extends Person {
 
     /** Prints the contents of the inventory, with items and number in stock. */
     public void getInventory(){
-
+        // in HC?
     }
 
     /** Views amount in wallet ($) */
@@ -62,8 +62,7 @@ public class Nurse extends Person {
         }
             System.out.println("Are you done buying items for your inventory?");
             if(userInput.toUpperCase().equals("YES")){ //game.userInput if from while loop?
-                System.out.println("Great!" + this.hc.seeInventory() + "\n You're ready to start seeing campers that need medical attention. Oh, look! There's one coming in right now!");
-                this.next();
+                System.out.println("Great!" + this.hc.seeInventory() + "\n You're ready to start seeing campers that need medical attention. Say NEXT to let the first camper in.");
             }
             in.close();
         }
@@ -76,10 +75,10 @@ public class Nurse extends Person {
             this.c.exit();
             this.c = null;
             if(campersTreated < 5){
-                System.out.println("Are you ready for the next camper?");
                 System.out.println("You have " + this.successPoints);
+                System.out.println("Are you ready for the next camper?");
             } else{
-                System.out.println("You have completed the game.");
+                System.out.println("You have completed the game with" + this.successPoints + " Success Points.");
                 if(this.successPoints >= 80){
                     System.out.println("Congratulations! You won!!");
                 } else{
@@ -94,32 +93,13 @@ public class Nurse extends Person {
             c.enter();
            // this.c = game.campers.get(campersTreated + 1); //would move down index of arraylist, how to reference game?
             System.out.println("A camper, " + c + ", walks in.");
-            String userInput = in.nextLine();
-            if(userInput.toUpperCase().equals("INTAKE") || userInput.toUpperCase().equals("WHAT'S WRONG?")){
-                c.intake();
-            } else{
-                System.out.println("The camper doesn't understand that command. Try asking them What's Wrong or Intake. ");
-                String userInput = in.nextLine();
-            }
-            in.close();
-            
             //initialize & calls next camper in to health center, enter()
         }
     
         public void intake(){
             this.c.complain();
-            String userInput = in.nextLine();
             this.successPoints += 5;
 
-            //put below into play() in game?
-            if(userInput.toUpperCase().contains("EXPLAIN") || userInput.toUpperCase().contains("TELL ME MORE")){
-                this.c.explain();
-
-            } else{
-                System.out.println(this.c.name + " didn't understand that. Try asking them to explain or tell you more.");
-            }
-
-            in.close();
             // after next(), if scanner input asks for malady
             // ask camper for primary complaint, response should give random from camper complain()
         }
@@ -146,7 +126,6 @@ public class Nurse extends Person {
             // choose how to treat the camper by using items in the inventory, check if in inventory
             // should camper have attribute of how well treated? like if sent home/bandaid/shake it off, appropriate?
             // should adjust nurse's success points
-            // adjust camper health points?
         }
     
         public void seePoints(){

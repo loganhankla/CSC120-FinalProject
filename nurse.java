@@ -59,74 +59,69 @@ public class Nurse extends Person {
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
         }
-
+            in.close();
         }
 
-        in.close();
-    }
-
-
-    public void dismiss(){
-        //tells camper they're done, sends them out camper.exit()
-        //update success points
-        this.campersTreated += 1;
-        this.c.setHP(10); // increase HP depending on treatment?
-        System.out.println(c.name + " smiles at you and exits the health center.");
-        this.c.exit();
-        this.c = null;
-        if(campersTreated < 5){
-            System.out.println("Are you ready for the next camper?");
-            System.out.println("You have " + this.successPoints);
-        } else{
-            System.out.println("You have completed the game.");
-            if(this.successPoints >= 80){
-                System.out.println("Congratulations! You won!!");
+        public void dismiss(){
+            //tells camper they're done, sends them out camper.exit()
+            //update success points
+            this.campersTreated += 1;
+            System.out.println(c.name + " smiles at you and exits the health center.");
+            this.c.exit();
+            this.c = null;
+            if(campersTreated < 5){
+                System.out.println("Are you ready for the next camper?");
+                System.out.println("You have " + this.successPoints);
             } else{
-                System.out.println("You FAILED.");
+                System.out.println("You have completed the game.");
+                if(this.successPoints >= 80){
+                    System.out.println("Congratulations! You won!!");
+                } else{
+                    System.out.println("You FAILED.");
+                }
             }
+            // ask if nurse is ready for next camper, if so, next() but only until campersTreated = 5 or successPoints = 100 or something
         }
-        // ask if nurse is ready for next camper, if so, next() but only until campersTreated = 5 or successPoints = 100 or something
-    }
-
-    public void next(Camper c){
-        // Random camper name? 
-        c.enter();
-        this.c = c;
-        System.out.println("A camper, " + c + ", walks in.");
-        //initialize & calls next camper in to health center, enter()
-    }
-
-    public void intake(Camper c){
-        // after next(), if scanner input asks for malady
-        // ask camper for primary complaint, response should give random from camper complain()
-    }
     
-    public void evaluate(){
-        // ask camper for more details, to show how impacting, helps to determine severity of malady
-    }
-
-    public void treat(){
-        // choose how to treat the camper by using items in the inventory, check if in inventory
-        // should camper have attribute of how well treated? like if sent home/bandaid/shake it off, appropriate?
-        // should adjust nurse's success points
-        // adjust camper health points?
-    }
-
-    public void seePoints(){
-        System.out.println("You currently have " + this.successPoints + " success points.");
-    }
+        public void next(Camper c){
+            // Random camper name? 
+            c.enter();
+            this.c = c;
+            System.out.println("A camper, " + c + ", walks in.");
+            //initialize & calls next camper in to health center, enter()
+        }
     
-       
-    public static void main(String[] args) {
-        Nurse becky = new Nurse("Becky");
-        becky.seeWallet();
-        becky.enter();
-        becky.seePoints();
-        Camper c = new Camper("Parker");
-        System.out.println(c);
-        becky.next(c);
-        System.out.println("something main");
+        public void intake(Camper c){
+            // after next(), if scanner input asks for malady
+            // ask camper for primary complaint, response should give random from camper complain()
+        }
+        
+        public void evaluate(){
+            // ask camper for more details, to show how impacting, helps to determine severity of malady
+        }
+    
+        public void treat(){
+            // choose how to treat the camper by using items in the inventory, check if in inventory
+            // should camper have attribute of how well treated? like if sent home/bandaid/shake it off, appropriate?
+            // should adjust nurse's success points
+            // adjust camper health points?
+        }
+    
+        public void seePoints(){
+            System.out.println("You currently have " + this.successPoints + " success points.");
+        }
+        
+           
+        public static void main(String[] args) {
+            Nurse becky = new Nurse("Becky");
+            becky.seeWallet();
+            becky.enter();
+            becky.seePoints();
+            Camper c = new Camper("Parker"); // should come from Random camper, from Game class? makeNames?
+            System.out.println(c);
+            becky.next(c);
+            System.out.println("something main");
+        }
+
+
     }
-
-
-}

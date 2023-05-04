@@ -3,19 +3,13 @@ import java.util.Random;
 public class Camper extends Person {
 
     public int severity;
-    private int HP; //Health Points
     public String primaryComplaint;
     //public String explanation;
 
-
-    public void setHP(int hp){
-        this.HP += hp;
-    }
     
     public Camper(String name){
         super(name);
         this.severity = 0; // make Random?
-        this.HP = 100; // make Random?
         this.inHealthCenter = false;
     }
 
@@ -35,11 +29,6 @@ public class Camper extends Person {
         // set this.camper's primaryComplaint, generated randomly from a list of complaints
 
         //add more and maybe more detail? 
-    }
-
-    /** Prints the camper's health points */
-    public void getHP(){
-        System.out.println("HP: " + this.HP + "/100");
     }
    
     /** Prints the camper's more in-depth explanation of their primary complaint depending on the level of severity. */
@@ -64,16 +53,6 @@ public class Camper extends Person {
         Random rand = new Random();
         this.severity = rand.nextInt((3 - 1) + 1) + 1;
         System.out.println("Severity: " + this.severity);
-    
-        // decreases HP depending on severity
-        if(this.severity == 1){ // use .equals instead?
-            this.HP -= 10;
-        } else{
-            if(this.severity == 2){
-                this.HP -= 30;
-            } else{
-                this.HP -= 50;
-            }
         }
 
         return this.severity;
@@ -127,7 +106,6 @@ public class Camper extends Person {
         Camper matilda = new Camper("Matilda");
         matilda.enter();
         matilda.getSeverity();
-        matilda.getHP();
         matilda.complain();
         matilda.primaryComplaint = "arm";
         matilda.getArmExplanation();

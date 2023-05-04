@@ -4,7 +4,7 @@ public class Nurse extends Person {
     
     public int wallet;
     private int successPoints;
-    private int campersTreated;
+    public int campersTreated;
     private Camper c;
     private HealthCenter hc;
     private Game g;
@@ -62,7 +62,11 @@ public class Nurse extends Person {
         }
             System.out.println("Are you done buying items for your inventory?");
             if(userInput.toUpperCase().equals("YES")){ //game.userInput if from while loop?
-                System.out.println("Great!" + this.hc.seeInventory() + "\n You're ready to start seeing campers that need medical attention. Say NEXT to let the first camper in.");
+                System.out.println("Great!");
+                this.hc.seeInventory(); 
+                System.out.println("\n You're ready to start seeing campers that need medical attention. Say NEXT to let the first camper in.");
+            } else{
+                System.out.println("Okay, BUY something!");
             }
             in.close();
         }
@@ -99,7 +103,6 @@ public class Nurse extends Person {
         public void intake(){
             this.c.complain();
             this.successPoints += 5;
-
             // after next(), if scanner input asks for malady
             // ask camper for primary complaint, response should give random from camper complain()
         }

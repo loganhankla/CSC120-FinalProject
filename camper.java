@@ -18,6 +18,7 @@ public class Camper extends Person {
     }
 
     
+
     //give camper name?
 
     public void complain(){
@@ -53,7 +54,7 @@ public class Camper extends Person {
         Random rand = new Random();
         this.severity = rand.nextInt((3 - 1) + 1) + 1;
         System.out.println("Severity: " + this.severity);
-        }
+        
 
         return this.severity;
     }
@@ -110,5 +111,5 @@ public class Camper extends Person {
         matilda.primaryComplaint = "arm";
         matilda.getArmExplanation();
     }
-    
 }
+

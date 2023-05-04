@@ -7,6 +7,7 @@ public class Nurse extends Person {
     private int campersTreated;
     private Camper c;
     private HealthCenter hc;
+    private Game g;
     
    /** Nurse constructor
     * @param name Nurse's name
@@ -73,6 +74,7 @@ public class Nurse extends Person {
                 System.out.println("Are you ready for the next camper?");
                 System.out.println("You have " + this.successPoints);
             } else{
+                this.hc.running = false; 
                 System.out.println("You have completed the game.");
                 if(this.successPoints >= 80){
                     System.out.println("Congratulations! You won!!");
@@ -86,8 +88,9 @@ public class Nurse extends Person {
         public void next(Camper c){
             // Random camper name? 
             c.enter();
-            this.c = c;
+           // this.c = game.campers.get(campersTreated + 1); //would move down index of arraylist, how to reference game?
             System.out.println("A camper, " + c + ", walks in.");
+            
             //initialize & calls next camper in to health center, enter()
         }
     
@@ -118,6 +121,8 @@ public class Nurse extends Person {
             becky.enter();
             becky.seePoints();
             Camper c = new Camper("Parker"); // should come from Random camper, from Game class? makeNames?
+            HealthCenter hCenter = new HealthCenter(); // needed?
+            becky.setHC(hCenter); // needed?
             System.out.println(c);
             becky.next(c);
             System.out.println("something main");

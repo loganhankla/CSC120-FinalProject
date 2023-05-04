@@ -5,15 +5,18 @@ import java.util.Scanner;
 
 public class Game {
 
-    private ArrayList<Camper> campers;
+    public ArrayList<Camper> campers;
     private Nurse becky;
     private HealthCenter hCenter;
+    private Camper c;
     
     public Game(){
         this.makeNames();
         this.becky = new Nurse("Becky");
         this.hCenter = new HealthCenter();
         this.becky.setHC(this.hCenter);
+
+        //while this.hCenter.going = true loop?
     }
 
     public void printOptions(){
@@ -32,9 +35,9 @@ public class Game {
        // return this.camperNames;
     }
 
-    public String toString(){
-        return "Camper Names are: " + campers;
-    }
+    //public String toString(){
+      //  return "Camper Names are: " + campers;
+    //}
 
     public void play(){
         Scanner in = new Scanner(System.in);
@@ -46,7 +49,7 @@ public class Game {
         //Camper c = new Camper("Parker");
         
         Game game = new Game();
-        System.out.println(game.toString());
+        //System.out.println(Game.toString());
         game.becky.next(game.campers.get(0));
         
         

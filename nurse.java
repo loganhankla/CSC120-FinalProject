@@ -25,11 +25,6 @@ public class Nurse extends Person {
         this.hc = h;
     }
 
-    /** Prints the contents of the inventory, with items and number in stock. */
-    public void getInventory(){
-        // in HC?
-    }
-
     /** Views amount in wallet ($) */
     public void seeWallet(){
         System.out.println("\nYour wallet contains $" + this.wallet + ".");
@@ -41,8 +36,6 @@ public class Nurse extends Person {
      */
     public void buy(){
         
-        
-        
         Scanner in = new Scanner(System.in);
         System.out.println("What item do you want to buy?");
         // print what do u wanna buy
@@ -52,7 +45,8 @@ public class Nurse extends Person {
         } else if(this.hc.inventory.containsKey(userInput)){
             if(this.wallet >= this.hc.supplyStore.get(userInput)){
                 this.hc.inventory.put(userInput, this.hc.inventory.get(userInput) + 1);
-            this.wallet -= this.hc.supplyStore.get(userInput); // subtract price of item from wallet
+                System.out.println(userInput + " has been added to the inventory. BUY another item for the inventory or call the NEXT camper in.");
+                this.wallet -= this.hc.supplyStore.get(userInput); // subtract price of item from wallet
             } else{
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
@@ -60,18 +54,11 @@ public class Nurse extends Person {
             if(this.wallet >= this.hc.supplyStore.get(userInput)){
                 this.hc.inventory.put(userInput, 1);
                 this.wallet -= this.hc.supplyStore.get(userInput);
+                System.out.println(userInput + " has been added to the inventory. BUY another item for the inventory or call the NEXT camper in.");
             } else{
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
         }
-            System.out.println("Are you done buying items for your inventory?");
-            if(userInput.toUpperCase().equals("YES")){ //game.userInput if from while loop?
-                System.out.println("Great!");
-                this.hc.seeInventory(); 
-                System.out.println("\n You're ready to start seeing campers that need medical attention. Say NEXT to let the first camper in.");
-            } else{
-                System.out.println("Okay, BUY something!");
-            }
            // in.close();
         }
 

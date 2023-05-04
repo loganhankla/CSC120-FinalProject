@@ -90,13 +90,13 @@ public class Game {
         
 
         // gets the game started
-        System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");
+        System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin (yes/no)?");
         
         String response = game.userInput.nextLine().toUpperCase();
 
         if(response.equals("YES")){
             System.out.println("Great! You'll work inside the Health Center, but first you need to make sure you have supplies.");
-            System.out.println("You have $200 in the Health Center WALLET. Check SUPPLY STORE to see what you can BUY for the INVENTORY.");
+            System.out.println("You have $200 in the Health Center WALLET. Check the SUPPLY STORE to see what you can BUY for the INVENTORY.");
             game.play();
          } // else{
         //     System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");

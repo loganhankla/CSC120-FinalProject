@@ -19,7 +19,7 @@ public class HealthCenter {
         this.supplyStore.put("ACE bandage", 30);
         this.supplyStore.put("splint", 40);
         this.supplyStore.put("TUMS Antacid", 20);
-        this.supplyStore.put("single-use thermometer", 10);
+        this.supplyStore.put("thermometer", 10);
         this.supplyStore.put("alcohol wipe", 5);
     
     }
@@ -35,6 +35,8 @@ public void seeSupplyStore(){
     System.out.println("\n==============Supply Store============== \n The store has unlimited supply of the following items: \n ");
     this.supplyStore.entrySet().forEach( entry -> {
         System.out.println(entry.getKey() + ": $" + entry.getValue() + " each use");
+
+        /// ONLY PRINTS SOME ITEMS SOMETIMES??
     });
 
     System.out.println("\nType BUY if you would like to buy something.");

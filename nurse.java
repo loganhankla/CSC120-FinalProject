@@ -73,8 +73,8 @@ public class Nurse extends Person {
             this.c.exit();
             this.c = null;
             if(campersTreated < 5){
-                System.out.println("You have " + this.successPoints);
-                System.out.println("Are you ready for the next camper?");
+                System.out.println("You have " + this.successPoints + " Success Points.");
+                System.out.println("Are you ready for the NEXT camper?");
             } else{
                 System.out.println("You have completed the game with" + this.successPoints + " Success Points.");
                 if(this.successPoints >= 80){
@@ -113,16 +113,23 @@ public class Nurse extends Person {
         }
     
         public void treat(){
+            //"ankle", "stomach", "arm", "rash", "head"
+           // if(c.primaryComplaint.equals("rash")){
+            this.successPoints += 15;
+           // }
             // if(userInput.contains(this.hc.inventory.containsKey())){
+            //     this.hc.inventory.get(userInput) -= 1; 
             //     // decrease stock in inventory by one
-            //     // if correct treatment, increase successPoints
+            // //     // if correct treatment, increase successPoints
             // } else{
-            //     System.out.println("You don't have the supplies to treat the camper this way.");
+            //      System.out.println("You don't have the supplies to treat the camper this way.");
             // }
             
             // choose how to treat the camper by using items in the inventory, check if in inventory
             // should camper have attribute of how well treated? like if sent home/bandaid/shake it off, appropriate?
             // should adjust nurse's success points
+
+            //treat options method? USE item, SEND HOME
         }
     
         public void seePoints(){

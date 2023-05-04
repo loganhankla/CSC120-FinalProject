@@ -1,5 +1,6 @@
 //import People.director;
 import java.util.Scanner;
+import java.util.Hashtable;
 
 
 public class Game {
@@ -52,8 +53,22 @@ public class Game {
                 this.hCenter.seeInventory();
             } else if(userInput.equals("DISMISS")){
                 this.becky.dismiss();
-            } else if(userInput.contains("USE")){
-                System.out.println("[PUT CODE HERE]"); // PUT CODE HERE
+            } else if(userInput.contains("TREAT")){
+                System.out.println("What item would you like to use?");
+                Scanner in = new Scanner(System.in);
+                String useInput = in.nextLine();
+                if(this.hCenter.inventory.containsKey(useInput)){
+                   // this.hCenter.inventory.get(useInput) -= 1; 
+                    this.hCenter.inventory.put(useInput, this.hCenter.inventory.get(useInput) - 1);
+                    if(c.appropriateTreatment.equals(useInput)){
+                        this.becky.treat();
+                    }
+                    // decrease stock in inventory by one
+                    // if correct treatment, increase successPoints
+                } else{
+                     System.out.println("You don't have the supplies to treat the camper this way.");
+                }
+                System.out.println("[PUT CODE HERE]"); // PUT CODE HERE to set success points and see if correct item
                 // if .contains() items in inventory, maybe in use method in nurse
             } else if(userInput.contains("INTAKE") || userInput.equals("WHAT'S WRONG?")){
                 this.becky.intake(); // GETS PRIMARY COMPLAINT
@@ -62,7 +77,14 @@ public class Game {
                 this.becky.evaluate(); // GETS DETAILED EXPLANATION
             } else if(userInput.equals("POINTS")){
                 this.becky.seePoints();
-            }
+            } else if(userInput.equals("OPTIONS")){
+                System.out.println("PRINT OPTIONS HERE \n* NEXT: brings next camper in \n * INTAKE: hear camper's primary complaint"); 
+                //DO THIS, MAKE METHOD? NEXT, BUY, ETC.
+            } 
+            // else if(userInput.equals("COMPLAINT")){
+            //     System.out.println(this.c.primaryComplaint);
+            // }
+
             if(this.becky.campersTreated >= 5 || userInput.equals("QUIT")){ // terminates game play loop once treated enough
                 break;
             }

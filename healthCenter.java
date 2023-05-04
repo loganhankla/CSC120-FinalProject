@@ -22,7 +22,7 @@ public class HealthCenter {
         this.supplyStore.put("splint", 40);
         this.supplyStore.put("TUMS Antacid", 20);
         this.supplyStore.put("thermometer", 10);
-        this.supplyStore.put("alcohol wipe", 5);
+        //this.supplyStore.put("alcohol wipe", 5);
     
     }
 
@@ -39,7 +39,7 @@ public class HealthCenter {
     }
 
     public void seeInventory(){
-        System.out.println("==============Health Center Inventory============== \n        (item (number in stock)): \n");
+        System.out.println("==============Health Center Inventory============== \n              (item (number in stock)): \n");
         this.inventory.entrySet().forEach( entry -> {
             System.out.println("- " + entry.getKey() + " (" + entry.getValue() + ")");
         });

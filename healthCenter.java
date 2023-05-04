@@ -25,19 +25,19 @@ public class HealthCenter {
     }
 
 public void seeInventory(){
-    System.out.println("Your inventory contains (item (number in stock)): \n");
+    System.out.println("==============Health Center Inventory============== \n        (item (number in stock)): \n");
     this.inventory.entrySet().forEach( entry -> {
-        System.out.println(entry.getKey() + " (" + entry.getValue() + ")");
+        System.out.println("- " + entry.getKey() + " (" + entry.getValue() + ")");
     });
 }
 
 public void seeSupplyStore(){
-    System.out.println("The Medical Supply Store has unlimited supply of the following items: \n ");
+    System.out.println("\n==============Supply Store============== \n The store has unlimited supply of the following items: \n ");
     this.supplyStore.entrySet().forEach( entry -> {
         System.out.println(entry.getKey() + ": $" + entry.getValue() + " each use");
     });
 
-    System.out.println("\nWhat do you wish to buy? Please tell us one item at a time.");
+    System.out.println("\nType BUY if you would like to buy something.");
 }
 
     public static void main(String[] args) {

@@ -32,7 +32,7 @@ public class Nurse extends Person {
 
     /** Views amount in wallet ($) */
     public void seeWallet(){
-        System.out.println("Your wallet contains $" + this.wallet + ".");
+        System.out.println("\nYour wallet contains $" + this.wallet + ".");
     }
 
     /**
@@ -40,7 +40,11 @@ public class Nurse extends Person {
      * @param item Item to buy and put in inventory
      */
     public void buy(){
+        
+        
+        
         Scanner in = new Scanner(System.in);
+        System.out.println("What item do you want to buy?");
         // print what do u wanna buy
         String userInput = in.nextLine();
         if(!this.hc.supplyStore.containsKey(userInput)){
@@ -68,7 +72,7 @@ public class Nurse extends Person {
             } else{
                 System.out.println("Okay, BUY something!");
             }
-            in.close();
+           // in.close();
         }
 
         public void dismiss(){

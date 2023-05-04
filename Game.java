@@ -54,7 +54,7 @@ public class Game {
                 this.hCenter.seeSupplyStore();
             } else if(userInput.contains("BUY")){
                 this.becky.buy();
-            } else if(userInput.equals("QUIT")){
+            } else if(userInput.equals("QUIT") || userInput.equals("Q")){
                 break;
             } else if(userInput.equals("WALLET")){
                 this.becky.seeWallet();
@@ -98,21 +98,21 @@ public class Game {
             System.out.println("Great! You'll work inside the Health Center, but first you need to make sure you have supplies.");
             System.out.println("You have $200 in the Health Center WALLET. Check SUPPLY STORE to see what you can BUY for the INVENTORY.");
             game.play();
-        } else{
-            while(response.equals("NO")){
-                System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");
-                if(!response.equals("NO")){
-                    System.out.println("Command not understood.");
-                }
-            }
-        }
+         } // else{
+        //     System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");
+        //     // while(response.equals("NO")){
+        //     //     System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");
+        //     //     if(!response.equals("NO")){
+        //     //         System.out.println("Command not understood.");
+        //     //     }
+        //     }
+        
         
         game.userInput.close();
         
         //Game game = new Game();
        // game.becky.next(game.campers.get(0));
 
-        
         
     }
 }

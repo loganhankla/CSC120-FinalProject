@@ -14,9 +14,9 @@ public class Camper extends Person {
         this.inHealthCenter = false;
     }
 
-    public String toString(){
-        return this.name;
-    }
+    // public String toString(){
+    //     return this.name;
+    // }
 
 
     //give camper name?

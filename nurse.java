@@ -7,7 +7,7 @@ public class Nurse extends Person {
     public int campersTreated;
     private Camper c;
     private HealthCenter hc;
-    private Game g;
+    //private Game g;
     
    /** Nurse constructor
     * @param name Nurse's name
@@ -63,7 +63,7 @@ public class Nurse extends Person {
             }
         }
          
-        }
+    }
 
         public void dismiss(){
             //tells camper they're done, sends them out camper.exit()
@@ -90,7 +90,7 @@ public class Nurse extends Person {
             // Random camper name? 
             this.c = this.hc.campers.get(this.campersTreated + 1); //would move down index of arraylist, how to reference game?
             c.enter();
-            System.out.println("A camper, " + this.c + ", walks in and waits for INTAKE.");
+            System.out.println("A camper, " + this.c.name + ", walks in and waits for INTAKE.");
             //initialize & calls next camper in to health center, enter()
         }
     

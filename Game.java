@@ -2,7 +2,6 @@
 import java.util.Scanner;
 import java.util.Hashtable;
 
-
 public class Game {
 
     private Nurse becky;
@@ -19,15 +18,6 @@ public class Game {
 
     }
 
-    public void printOptions(){
-        //buy, use, dismiss, intake, call next, ask more, check wallet
-    }
-
-    
-
-    //public String toString(){
-      //  return "Camper Names are: " + campers;
-    //}
 
     public void play(){
         //Scanner in = new Scanner(System.in);
@@ -97,8 +87,6 @@ public class Game {
         
         Game game = new Game();
 
-        
-
         // gets the game started
         System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin (yes/no)?");
         
@@ -108,21 +96,10 @@ public class Game {
             System.out.println("Great! You'll work inside the Health Center, but first you need to make sure you have supplies.");
             System.out.println("You have $200 in the Health Center WALLET. Check the SUPPLY STORE to see what you can BUY for the INVENTORY.");
             game.play();
-         } // else{
-        //     System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");
-        //     // while(response.equals("NO")){
-        //     //     System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin?");
-        //     //     if(!response.equals("NO")){
-        //     //         System.out.println("Command not understood.");
-        //     //     }
-        //     }
+         }
         
         
         game.userInput.close();
-        
-        //Game game = new Game();
-       // game.becky.next(game.campers.get(0));
-
         
     }
 }

@@ -21,14 +21,14 @@ public class Person {
         }  
     }
 
-public void exit(){
-    if(this.inHealthCenter = true){
-        this.inHealthCenter = false;
-        System.out.println("You have exited the Health Center.");
-        // could provide more description here
-    } else{
-        System.out.println("You are already outside of the Health Center.");
+    public void exit(){
+        if(this.inHealthCenter = true){
+            this.inHealthCenter = false;
+            System.out.println("You have exited the Health Center.");
+            // could provide more description here
+        } else{
+            System.out.println("You are already outside of the Health Center.");
+        }
     }
-}
 
 }

@@ -18,6 +18,9 @@ public class Nurse extends Person {
         this.successPoints = 0;
         this.campersTreated = 0;
         this.inHealthCenter = true;
+        //this.g = new Game();
+        //this.c = this.g.campers.get(campersTreated + 1);
+        //this.hc = setHC(hc);
 
     }
 
@@ -59,7 +62,7 @@ public class Nurse extends Person {
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
         }
-           // in.close();
+         
         }
 
         public void dismiss(){
@@ -83,11 +86,11 @@ public class Nurse extends Person {
             // ask if nurse is ready for next camper, if so, next() but only until campersTreated = 5 or successPoints = 100 or something
         }
     
-        public void next(Camper c){
+        public void next(){
             // Random camper name? 
+            this.c = this.hc.campers.get(this.campersTreated + 1); //would move down index of arraylist, how to reference game?
             c.enter();
-           // this.c = game.campers.get(campersTreated + 1); //would move down index of arraylist, how to reference game?
-            System.out.println("A camper, " + c + ", walks in.");
+            System.out.println("A camper, " + this.c + ", walks in.");
             //initialize & calls next camper in to health center, enter()
         }
     
@@ -136,7 +139,7 @@ public class Nurse extends Person {
             HealthCenter hCenter = new HealthCenter(); // needed?
             becky.setHC(hCenter); // needed?
             System.out.println(c);
-            becky.next(c);
+            becky.next();
             System.out.println("something main");
         }
 

@@ -1,20 +1,18 @@
 //import People.director;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Game {
 
-    public ArrayList<Camper> campers;
     private Nurse becky;
     private HealthCenter hCenter;
     private Camper c;
     private Scanner userInput;
     
     public Game(){
-        this.makeNames();
         this.becky = new Nurse("Becky");
         this.hCenter = new HealthCenter();
+        this.hCenter.makeNames();
         this.becky.setHC(this.hCenter);
         this.userInput = new Scanner(System.in);
 
@@ -24,17 +22,7 @@ public class Game {
         //buy, use, dismiss, intake, call next, ask more, check wallet
     }
 
-    public void makeNames(){
-        //make ArrayList of camper names
-        this.campers = new ArrayList<Camper>();
-        this.campers.add(new Camper("Lucia")); 
-        this.campers.add(new Camper("Samantha")); 
-        this.campers.add(new Camper("Madeleine")); 
-        this.campers.add(new Camper ("Iliana")); 
-        this.campers.add(new Camper ("Qiaochu")); 
-        //System.out.println(this.camperNames);
-       // return this.camperNames;
-    }
+    
 
     //public String toString(){
       //  return "Camper Names are: " + campers;
@@ -59,7 +47,7 @@ public class Game {
             } else if(userInput.equals("WALLET")){
                 this.becky.seeWallet();
             } else if(userInput.equals("NEXT")){
-                this.becky.next(c); // take out c as input?
+                this.becky.next(); 
             } else if(userInput.equals("INVENTORY")){
                 this.hCenter.seeInventory();
             } else if(userInput.equals("DISMISS")){

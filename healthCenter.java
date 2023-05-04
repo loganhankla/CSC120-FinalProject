@@ -6,10 +6,8 @@ import java.util.Hashtable;
 public class HealthCenter {
     public Hashtable<String, Integer> inventory; //int is stock number
     public Hashtable<String, Integer> supplyStore; // int is price
-    public boolean running;
 
     public HealthCenter(){
-        this.running = true;
         this.inventory = new Hashtable<String, Integer>();
         this.supplyStore = new Hashtable<String, Integer>();
         this.supplyStore.put("aloe", 10);

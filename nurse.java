@@ -79,7 +79,6 @@ public class Nurse extends Person {
                 System.out.println("Are you ready for the next camper?");
                 System.out.println("You have " + this.successPoints);
             } else{
-                this.hc.running = false; 
                 System.out.println("You have completed the game.");
                 if(this.successPoints >= 80){
                     System.out.println("Congratulations! You won!!");
@@ -96,7 +95,7 @@ public class Nurse extends Person {
            // this.c = game.campers.get(campersTreated + 1); //would move down index of arraylist, how to reference game?
             System.out.println("A camper, " + c + ", walks in.");
             String userInput = in.nextLine();
-            if(userInput.toUpperCase().equals("INTAKE" | "WHAT'S WRONG?")){
+            if(userInput.toUpperCase().equals("INTAKE") || userInput.toUpperCase().equals("WHAT'S WRONG?")){
                 c.intake();
             } else{
                 System.out.println("The camper doesn't understand that command. Try asking them What's Wrong or Intake. ");
@@ -110,11 +109,14 @@ public class Nurse extends Person {
         public void intake(){
             this.c.complain();
             String userInput = in.nextLine();
-            if(userInput.toUpperCase().contains("EXPLAIN" | "TELL ME MORE")){
+            this.successPoints += 5;
+
+            //put below into play() in game?
+            if(userInput.toUpperCase().contains("EXPLAIN") || userInput.toUpperCase().contains("TELL ME MORE")){
                 this.c.explain();
+
             } else{
                 System.out.println(this.c.name + " didn't understand that. Try asking them to explain or tell you more.");
-                String userInput = in.nextLine();
             }
 
             in.close();
@@ -123,10 +125,24 @@ public class Nurse extends Person {
         }
         
         public void evaluate(){
+            if(!this.c.primaryComplaint.equals("")){
+                this.c.explain();
+                this.successPoints += 5;
+            } else{
+                System.out.println("You must INTAKE the camper first.");
+            }
+            
             // ask camper for more details, to show how impacting, helps to determine severity of malady
         }
     
         public void treat(){
+            // if(userInput.contains(this.hc.inventory.containsKey())){
+            //     // decrease stock in inventory by one
+            //     // if correct treatment, increase successPoints
+            // } else{
+            //     System.out.println("You don't have the supplies to treat the camper this way.");
+            // }
+            
             // choose how to treat the camper by using items in the inventory, check if in inventory
             // should camper have attribute of how well treated? like if sent home/bandaid/shake it off, appropriate?
             // should adjust nurse's success points

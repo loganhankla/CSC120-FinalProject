@@ -14,15 +14,15 @@ public class HealthCenter {
         this.supplyStore = new Hashtable<String, Integer>();
         this.supplyStore.put("aloe", 10);
         this.supplyStore.put("ibuprofen", 5);
-        this.supplyStore.put("Epipen", 50);
+        this.supplyStore.put("Epipen", 40);
         this.supplyStore.put("benadryl", 10);
         this.supplyStore.put("bandaid", 5);
         this.supplyStore.put("gauze", 10);
         this.supplyStore.put("ACE bandage", 30);
         this.supplyStore.put("splint", 40);
         this.supplyStore.put("TUMS Antacid", 20);
-        this.supplyStore.put("thermometer", 10);
-        //this.supplyStore.put("alcohol wipe", 5);
+        this.supplyStore.put("ambulance ride", 50);
+        //this.supplyStore.put("thermometer", 10);
     
     }
 
@@ -39,7 +39,7 @@ public class HealthCenter {
     }
 
     public void seeInventory(){
-        System.out.println("==============Health Center Inventory============== \n              (item (number in stock)): \n");
+        System.out.println("==============Health Center Inventory============== \n            (item (number in stock)): \n");
         this.inventory.entrySet().forEach( entry -> {
             System.out.println("- " + entry.getKey() + " (" + entry.getValue() + ")");
         });

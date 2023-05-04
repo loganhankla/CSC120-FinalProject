@@ -90,12 +90,14 @@ public class Nurse extends Person {
             // Random camper name? 
             this.c = this.hc.campers.get(this.campersTreated + 1); //would move down index of arraylist, how to reference game?
             c.enter();
-            System.out.println("A camper, " + this.c + ", walks in.");
+            System.out.println("A camper, " + this.c + ", walks in and waits for INTAKE.");
             //initialize & calls next camper in to health center, enter()
         }
     
         public void intake(){
+            System.out.println("You greet the camper and smile. \"What seems to be the problem today?\" you ask.");
             this.c.complain();
+            System.out.println("You want to know more before treating the camper, so you must EVALUATE them.");
             this.successPoints += 5;
             // after next(), if scanner input asks for malady
             // ask camper for primary complaint, response should give random from camper complain()

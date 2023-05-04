@@ -91,29 +91,29 @@ public class Camper extends Person {
 
     public void getHeadExplanation(){
         if(this.severity == 1){
-            this.appropriateTreatment = "XXXX";
+            this.appropriateTreatment = "ibuprofen";
             System.out.println("\"I have a headache, and I haven't had much water today.\" \n You look at the camper's profile and notice that their hometown is at a lower elevation than the camp.");
         } else{
             if(this.severity == 2){
-                this.appropriateTreatment = "XXXX";
+                this.appropriateTreatment = "gauze";
                 System.out.println("\" [EXPLANATION]\"");
             } else{
-                this.appropriateTreatment = "XXXX";
-                System.out.println("[EXPLANATION: concussion]");
+                this.appropriateTreatment = "ambulance ride";
+                System.out.println("[EXPLANATION: severe concussion]");
             }
         }
     }
 
     public void getRashExplanation(){
         if(this.severity == 1){
-            this.appropriateTreatment = "XXXX";
+            this.appropriateTreatment = "aloe";
             System.out.println("\"[EXPLANATION]");
         } else{
             if(this.severity == 2){
-                this.appropriateTreatment = "XXXX";
+                this.appropriateTreatment = "benadryl";
                 System.out.println("\" [EXPLANATION]");
             } else{
-                this.appropriateTreatment = "XXXX";
+                this.appropriateTreatment = "Epipen";
                 System.out.println("[EXPLANATION]");
             }
         }
@@ -121,14 +121,14 @@ public class Camper extends Person {
     
     public void getAnkleExplanation(){
         if(this.severity == 1){
-            this.appropriateTreatment = "XXXX";
+            this.appropriateTreatment = "bandaid";
             System.out.println("\"[EXPLANATION]");
         } else{
             if(this.severity == 2){
-                this.appropriateTreatment = "XXXX";
+                this.appropriateTreatment = "ACE bandage";
                 System.out.println("[EXPLANATION]");
             } else{
-                this.appropriateTreatment = "XXXX";
+                this.appropriateTreatment = "splint";
                 System.out.println("[EXPLANATION]");
             }
         }
@@ -136,15 +136,15 @@ public class Camper extends Person {
 
     public void getStomachExplanation(){
         if(this.severity == 1){
-            this.appropriateTreatment = "XXXX";
+            this.appropriateTreatment = "bandaid";
             System.out.println("\"[EXPLANATION]");
         } else{
             if(this.severity == 2){
-                this.appropriateTreatment = "XXXX";
+                this.appropriateTreatment = "TUMS Antacid";
                 System.out.println("\" [EXPLANATION]");
             } else{
-                this.appropriateTreatment = "XXXX";
-                System.out.println("[EXPLANATION]");
+                this.appropriateTreatment = "ambulance ride";
+                System.out.println("[EXPLANATION]: appendix burst");
             }
         }
     }

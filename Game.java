@@ -60,7 +60,7 @@ public class Game {
                 if(this.hCenter.inventory.containsKey(useInput)){
                    // this.hCenter.inventory.get(useInput) -= 1; 
                     this.hCenter.inventory.put(useInput, this.hCenter.inventory.get(useInput) - 1);
-                    if(c.appropriateTreatment.equals(useInput)){
+                    if(c.appropriateTreatment.equals(useInput)){ // THIS NOT WORKING
                         this.becky.treat();
                     }
                     // decrease stock in inventory by one
@@ -78,7 +78,7 @@ public class Game {
             } else if(userInput.equals("POINTS")){
                 this.becky.seePoints();
             } else if(userInput.equals("OPTIONS")){
-                System.out.println("PRINT OPTIONS HERE \n* NEXT: brings next camper in \n * INTAKE: hear camper's primary complaint"); 
+                System.out.println("PRINT OPTIONS HERE \n* NEXT: brings next camper in \n* INTAKE: hear camper's primary complaint"); 
                 //DO THIS, MAKE METHOD? NEXT, BUY, ETC.
             } 
             // else if(userInput.equals("COMPLAINT")){

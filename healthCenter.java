@@ -8,6 +8,7 @@ public class HealthCenter {
     public Hashtable<String, Integer> inventory; //int is stock number
     public Hashtable<String, Integer> supplyStore; // int is price
     public ArrayList<Camper> campers;
+   // public Camper currentCamper;
 
     public HealthCenter(){
         this.inventory = new Hashtable<String, Integer>();
@@ -22,7 +23,8 @@ public class HealthCenter {
         this.supplyStore.put("splint", 40);
         this.supplyStore.put("TUMS Antacid", 20);
         this.supplyStore.put("ambulance ride", 50);
-        //this.supplyStore.put("thermometer", 10);
+
+
     
     }
 

@@ -18,8 +18,12 @@ public class Nurse extends Person {
         this.successPoints = 0;
         this.campersTreated = 0;
         this.inHealthCenter = true;
-        //this.c = this.g.campers.get(campersTreated + 1);
+       // this.c = new Camper(this.hc.campers.get(this.campersTreated + 1));
+       // this.hc.campers.get(this.campersTreated + 1)
+       // this.g.campers.get(campersTreated + 1);
         //this.hc = setHC(hc);
+
+        this.c = new Camper("Test");
 
     }
 
@@ -74,7 +78,7 @@ public class Nurse extends Person {
             if(campersTreated < 5){
                 System.out.println("You have " + this.successPoints + " Success Points.");
                 System.out.println("Are you ready for the NEXT camper?");
-            } else{
+            } else{ // move to play?
                 System.out.println("You have completed the game with" + this.successPoints + " Success Points.");
                 if(this.successPoints >= 80){
                     System.out.println("Congratulations! You won!!");
@@ -86,9 +90,15 @@ public class Nurse extends Person {
         }
     
         public void next(){
-            // Random camper name? 
-            this.c = this.hc.campers.get(this.campersTreated + 1); //would move down index of arraylist, how to reference game?
-            c.enter();
+           // this.c.name = this.hc.campers.get(this.campersTreated + 1); //would move down index of arraylist, how to reference game?
+           // this.campName = this.hc.campers.get(this.campersTreated + 1);
+           // this.c.name = campName;
+            int index = this.campersTreated + 1;
+            this.c = this.hc.campers.get(index);
+
+
+           // works just below
+            this.c.enter();
             System.out.println("A camper, " + this.c.name + ", walks in and waits for INTAKE.");
             //initialize & calls next camper in to health center, enter()
         }

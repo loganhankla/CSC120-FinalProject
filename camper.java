@@ -8,7 +8,7 @@ public class Camper extends Person {
     //public String explanation;
 
     
-    public Camper(String name){
+    public Camper(String name){ 
         super(name);
         this.severity = 0; // make Random?
         this.inHealthCenter = false;

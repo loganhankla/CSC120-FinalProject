@@ -36,6 +36,7 @@ public class HealthCenter {
         this.campers.add(new Camper("Madeleine")); 
         this.campers.add(new Camper ("Iliana")); 
         this.campers.add(new Camper ("Qiaochu")); 
+        this.campers.add(new Camper ("Michelle")); 
         //System.out.println(this.camperNames);
        // return this.camperNames;
     }

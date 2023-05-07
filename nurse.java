@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Nurse extends Person {
     
     public int wallet;
-    private int successPoints;
+    public int successPoints;
     public int campersTreated;
-    private Camper c;
+    public Camper c;
     private HealthCenter hc;
     //private Game g;
     
@@ -77,7 +77,7 @@ public class Nurse extends Person {
             this.c = null;
             if(campersTreated < 5){
                 System.out.println("You have " + this.successPoints + " Success Points.");
-                System.out.println("Are you ready for the NEXT camper?");
+                System.out.println("Call the NEXT camper when you're ready.");
             } else{ // move to play?
                 System.out.println("You have completed the game with" + this.successPoints + " Success Points.");
                 if(this.successPoints >= 80){
@@ -126,7 +126,7 @@ public class Nurse extends Person {
         public void treat(){
             //"ankle", "stomach", "arm", "rash", "head"
            // if(c.primaryComplaint.equals("rash")){
-            this.successPoints += 15;
+            this.successPoints += 20;
            // }
             // if(userInput.contains(this.hc.inventory.containsKey())){
             //     this.hc.inventory.get(userInput) -= 1; 

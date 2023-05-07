@@ -85,7 +85,7 @@ public class Camper extends Person {
             }
         }
 
-        System.out.println("\n Nurse, would you like to TREAT the camper?");
+        System.out.println("\nNurse, would you like to TREAT the camper?");
     }
 
     public void getHeadExplanation(){

@@ -49,17 +49,20 @@ public class Game {
                 String useInput = in.nextLine();
                 if(this.hCenter.inventory.containsKey(useInput)){
                    // this.hCenter.inventory.get(useInput) -= 1; 
-                    this.hCenter.inventory.put(useInput, this.hCenter.inventory.get(useInput) - 1);
-                    if(c.appropriateTreatment.equals(useInput)){ // THIS NOT WORKING
-                        this.becky.treat();
+                    this.hCenter.inventory.put(useInput, this.hCenter.inventory.get(useInput) - 1); //decreases stock
+                    if(this.becky.c.appropriateTreatment.equals(useInput)){ // THIS NOT WORKING
+                        this.becky.treat(); // increases success points 20
+                        System.out.println("Great job! You successfully treated the camper. You have " + this.becky.successPoints + " Success Points. You can now DISMISS them.");
+                    } else{
+                        this.becky.successPoints -= 20;
+                        System.out.println("You treated the camper incorrectly. You've lost 20 points. You can DISMISS the camper, or try to TREAT them again.");
                     }
                     // decrease stock in inventory by one
                     // if correct treatment, increase successPoints
                 } else{
-                     System.out.println("You don't have the supplies to treat the camper this way.");
+                     System.out.println("You don't have the supplies to treat the camper this way. Check your INVENTORY, and try to TREAT them again.");
                 }
-                System.out.println("[PUT CODE HERE]"); // PUT CODE HERE to set success points and see if correct item
-                // if .contains() items in inventory, maybe in use method in nurse
+               // System.out.println("[PUT CODE HERE]"); // PUT CODE HERE to set success points and see if correct item
             } else if(userInput.contains("INTAKE") || userInput.equals("WHAT'S WRONG?")){
                 this.becky.intake(); // GETS PRIMARY COMPLAINT
                 // ONLY IF CAMPER IN?

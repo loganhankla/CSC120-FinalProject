@@ -18,7 +18,6 @@ public class Nurse extends Person {
         this.successPoints = 0;
         this.campersTreated = 0;
         this.inHealthCenter = true;
-        //this.g = new Game();
         //this.c = this.g.campers.get(campersTreated + 1);
         //this.hc = setHC(hc);
 
@@ -97,7 +96,7 @@ public class Nurse extends Person {
         public void intake(){
             System.out.println("You greet the camper and smile. \"What seems to be the problem today?\" you ask.");
             this.c.complain();
-            System.out.println("You want to know more before treating the camper, so you must EVALUATE them.");
+            System.out.println("You want to know more before treating them, so you must EVALUATE them.");
             this.successPoints += 5;
             // after next(), if scanner input asks for malady
             // ask camper for primary complaint, response should give random from camper complain()
@@ -144,10 +143,9 @@ public class Nurse extends Person {
             becky.seeWallet();
             becky.enter();
             becky.seePoints();
-            Camper c = new Camper("Parker"); // should come from Random camper, from Game class? makeNames?
             HealthCenter hCenter = new HealthCenter(); // needed?
             becky.setHC(hCenter); // needed?
-            System.out.println(c);
+            System.out.println(becky.c);
             becky.next();
             System.out.println("something main");
         }

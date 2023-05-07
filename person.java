@@ -1,7 +1,7 @@
 
 public class Person {
-    String name;
-    boolean inHealthCenter;
+    public String name;
+    public boolean inHealthCenter;
 
     /** Person constructor.
      * @param name Person's name

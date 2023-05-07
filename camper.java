@@ -86,7 +86,6 @@ public class Camper extends Person {
         }
 
         System.out.println("\n Nurse, would you like to TREAT the camper?");
-        //put Scanner in?
     }
 
     public void getHeadExplanation(){
@@ -96,7 +95,9 @@ public class Camper extends Person {
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "gauze";
-                System.out.println("\" [EXPLANATION]\"");
+                System.out.println("\"We were playing dodgeball at the sports field, and I ran into somebody else.\"");
+                System.out.println("\nYou notice a cut on " + this.name + "'s forehead. There's a significant cut and the wound is continuously bleeding.");
+                System.out.println("\nYou check for symptoms of a concussion, but the camper looks clear. You know that heads bleed a lot, so without a concussion, the injury should be treatable at camp.");
             } else{
                 this.appropriateTreatment = "ambulance ride";
                 System.out.println("[EXPLANATION: severe concussion]");
@@ -107,7 +108,9 @@ public class Camper extends Person {
     public void getRashExplanation(){
         if(this.severity == 1){
             this.appropriateTreatment = "aloe";
-            System.out.println("\"[EXPLANATION]");
+            System.out.println("\"My skin is really red, and it hurts to touch.\"");
+            System.out.println("\nYou notice the camper's skin is red all over. You ask, \"Did you wear sunscreen today?\"");
+            System.out.println("The camper timidly shakes their head. You don't see any blistering on their skin, so you identify the camper's malady as a low-grade sunburn.");
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "benadryl";

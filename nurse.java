@@ -79,7 +79,7 @@ public class Nurse extends Person {
                 System.out.println("You have " + this.successPoints + " Success Points.");
                 System.out.println("Call the NEXT camper when you're ready.");
             } else{ // move to play?
-                System.out.println("You have completed the game with" + this.successPoints + " Success Points.");
+                System.out.println("You have completed the game with " + this.successPoints + " Success Points.");
                 if(this.successPoints >= 80){
                     System.out.println("Congratulations! You won!!");
                 } else{
@@ -104,9 +104,9 @@ public class Nurse extends Person {
         }
     
         public void intake(){
-            System.out.println("You greet the camper and smile. \"What seems to be the problem today?\" you ask.");
+            System.out.println("\nYou greet the camper and smile. \"What seems to be the problem today?\" you ask.");
             this.c.complain();
-            System.out.println("You want to know more before treating them, so you must EVALUATE them.");
+            System.out.println("\nYou want to know more before treating them, so you must EVALUATE them.");
             this.successPoints += 5;
             // after next(), if scanner input asks for malady
             // ask camper for primary complaint, response should give random from camper complain()

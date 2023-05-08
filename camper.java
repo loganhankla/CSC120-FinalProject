@@ -54,7 +54,7 @@ public class Camper extends Person {
         //randomly generates severity level from 1-3
         Random rand = new Random();
         this.severity = rand.nextInt((3 - 1) + 1) + 1;
-        System.out.println("Severity: " + this.severity);
+        System.out.println("\nSeverity: " + this.severity);
         
         return this.severity;
     }

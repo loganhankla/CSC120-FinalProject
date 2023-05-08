@@ -12,7 +12,7 @@ public class Person {
     }
 
     public void enter(){
-        if(this.inHealthCenter = false){
+        if(this.inHealthCenter == false){
             this.inHealthCenter = true;
             System.out.println(this.name + " has entered the Health Center.");
             // could include description of what they see inside
@@ -22,7 +22,7 @@ public class Person {
     }
 
     public void exit(){
-        if(this.inHealthCenter = true){
+        if(this.inHealthCenter == true){
             this.inHealthCenter = false;
             System.out.println("You have exited the Health Center.");
             // could provide more description here

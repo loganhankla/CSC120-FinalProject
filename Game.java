@@ -23,10 +23,10 @@ public class Game {
         //Scanner in = new Scanner(System.in);
         //String userInput = in.nextLine().toUpperCase();
         // if else for user inputs "USE" "BUY" 
-
+        boolean keepGoing = true;
         // while loop of running, have scanner open and if statements
 
-        while(true){
+        while(keepGoing){
             //Scanner in = new Scanner(System.in);
             String userInput = this.userInput.nextLine().toUpperCase();
             if(userInput.equals("SUPPLY STORE")){
@@ -54,8 +54,14 @@ public class Game {
                         this.becky.treat(); // increases success points 20
                         System.out.println("Great job! You successfully treated the camper. You have " + this.becky.successPoints + " Success Points. You can now DISMISS them.");
                     } else{
-                        this.becky.successPoints -= 20;
-                        System.out.println("You treated the camper incorrectly. You've lost 20 points. You can DISMISS the camper, or try to TREAT them again.");
+                        if(this.becky.c.severity == 1){
+                            this.becky.successPoints -= 10;
+                        } else if(this.becky.c.severity == 2){
+                            this.becky.successPoints -= 25;
+                        } else if(this.becky.c.severity == 3){
+                            this.becky.successPoints -= 40;
+                        }
+                        System.out.println("You treated the camper incorrectly. You've lost points, and now have " + this.becky.successPoints + "Success Points. \nYou can DISMISS the camper, or try to TREAT them again.");
                     }
                     // decrease stock in inventory by one
                     // if correct treatment, increase successPoints
@@ -79,11 +85,13 @@ public class Game {
             // }
 
             if(this.becky.campersTreated >= 5 || userInput.equals("QUIT")){ // terminates game play loop once treated enough
-                break;
+                keepGoing = false;
             }
 
            //put in closing game message, if won, etc.
         }
+
+        System.out.println("Game over!");
     }
 
     public static void main(String[] args) {

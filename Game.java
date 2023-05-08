@@ -20,14 +20,10 @@ public class Game {
 
 
     public void play(){
-        //Scanner in = new Scanner(System.in);
-        //String userInput = in.nextLine().toUpperCase();
-        // if else for user inputs "USE" "BUY" 
         boolean keepGoing = true;
         // while loop of running, have scanner open and if statements
 
         while(keepGoing){
-            //Scanner in = new Scanner(System.in);
             String userInput = this.userInput.nextLine().toUpperCase();
             if(userInput.equals("SUPPLY STORE")){
                 this.hCenter.seeSupplyStore();
@@ -48,9 +44,8 @@ public class Game {
                 Scanner in = new Scanner(System.in);
                 String useInput = in.nextLine();
                 if(this.hCenter.inventory.containsKey(useInput)){
-                   // this.hCenter.inventory.get(useInput) -= 1; 
                     this.hCenter.inventory.put(useInput, this.hCenter.inventory.get(useInput) - 1); //decreases stock
-                    if(this.becky.c.appropriateTreatment.equals(useInput)){ // THIS NOT WORKING
+                    if(this.becky.c.appropriateTreatment.equals(useInput)){
                         this.becky.treat(); // increases success points 20
                         System.out.println("Great job! You successfully treated the camper. You have " + this.becky.successPoints + " Success Points. You can now DISMISS them.");
                     } else{
@@ -61,37 +56,39 @@ public class Game {
                         } else if(this.becky.c.severity == 3){
                             this.becky.successPoints -= 40;
                         }
-                        System.out.println("You treated the camper incorrectly. You've lost points, and now have " + this.becky.successPoints + "Success Points. \nYou can DISMISS the camper, or try to TREAT them again.");
+                        System.out.println("You treated the camper incorrectly. You've lost points, and now have " + this.becky.successPoints + " Success Points. \nYou can DISMISS the camper, or try to TREAT them again.");
                     }
-                    // decrease stock in inventory by one
-                    // if correct treatment, increase successPoints
                 } else{
-                     System.out.println("You don't have the supplies to treat the camper this way. Check your INVENTORY, and try to TREAT them again.");
+                    this.becky.successPoints -= 5;
+                    System.out.println("You don't have the supplies to treat the camper this way. Check your INVENTORY, and try to TREAT them again.");
                 }
-               // System.out.println("[PUT CODE HERE]"); // PUT CODE HERE to set success points and see if correct item
             } else if(userInput.contains("INTAKE") || userInput.equals("WHAT'S WRONG?")){
                 this.becky.intake(); // GETS PRIMARY COMPLAINT
-                // ONLY IF CAMPER IN?
             } else if(userInput.equals("EXPLAIN") || userInput.equals("TELL ME MORE") || userInput.equals("EVALUATE")){
                 this.becky.evaluate(); // GETS DETAILED EXPLANATION
             } else if(userInput.equals("POINTS")){
                 this.becky.seePoints();
             } else if(userInput.equals("OPTIONS")){
-                System.out.println("PRINT OPTIONS HERE \n* NEXT: brings next camper in \n* INTAKE: hear camper's primary complaint"); 
+                System.out.println("\n============COMMAND OPTIONS============ ");
+                System.out.println("\n* Q or QUIT: quit the game \n* OPTIONS: prints command options \n* POINTS: show current Success Points"); 
+                System.out.println("* SUPPLY STORE: Shows list of items available for purchase and their price ($) \n* WALLET: Shows amount of money you have available to spend \n* INVENTORY: shows items and number in stock at the Health Center \n* BUY: allows you to buy items from the supply store for the inventory");
+                System.out.println("* NEXT: brings next camper in \n* INTAKE or WHAT'S WRONG?: hear camper's primary complaint");
+                System.out.println("* EVALUATE or EXPLAIN or TELL ME MORE: gets the camper's more in depth explanation of the malady following intake");
+                System.out.println("* COMPLAINT: reminds you of the camper's primary complaint after intake");
+                System.out.println("* TREAT: allows you to treat the camper using an item from the inventory");
+                System.out.println("* DISMISS: dismisses the current camper");
                 //DO THIS, MAKE METHOD? NEXT, BUY, ETC.
-            } 
-            // else if(userInput.equals("COMPLAINT")){
-            //     System.out.println(this.c.primaryComplaint);
-            // }
+            } else if(userInput.equals("COMPLAINT")){
+                System.out.println("The camper's primary complaint is: " + this.becky.c.primaryComplaint);
+            }
+             
 
-            if(this.becky.campersTreated >= 5 || userInput.equals("QUIT")){ // terminates game play loop once treated enough
+            if(this.becky.campersTreated >= 5 || userInput.equals("QUIT") || this.becky.successPoints < 0){ // terminates game play loop once treated enough
                 keepGoing = false;
             }
-
-           //put in closing game message, if won, etc.
         }
 
-        System.out.println("Game over!");
+        System.out.println("\n*****Game over!***** \n Thanks for playing! \n********************\n");
     }
 
     public static void main(String[] args) {

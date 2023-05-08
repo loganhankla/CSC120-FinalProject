@@ -24,10 +24,9 @@ public class Person {
     public void exit(){
         if(this.inHealthCenter == true){
             this.inHealthCenter = false;
-            System.out.println("You have exited the Health Center.");
-            // could provide more description here
+            //System.out.println("You have exited the Health Center.");
         } else{
-            System.out.println("You are already outside of the Health Center.");
+            //System.out.println("You are already outside of the Health Center.");
         }
     }
 

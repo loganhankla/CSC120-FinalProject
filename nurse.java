@@ -80,7 +80,7 @@ public class Nurse extends Person {
                 System.out.println("Call the NEXT camper when you're ready.");
             } else{ // move to play?
                 System.out.println("You have completed the game with " + this.successPoints + " Success Points.");
-                if(this.successPoints >= 80){
+                if(this.successPoints >= 100){
                     System.out.println("Congratulations! You won!!");
                 } else{
                     System.out.println("You FAILED.");
@@ -104,7 +104,7 @@ public class Nurse extends Person {
         }
     
         public void intake(){
-            System.out.println("\nYou greet the camper and smile. \"What seems to be the problem today?\" you ask.");
+            System.out.println("\nYou greet the camper and smile. \"What seems to be the problem today?\" you ask.\n");
             this.c.complain();
             System.out.println("\nYou want to know more before treating them, so you must EVALUATE them.");
             this.successPoints += 5;
@@ -113,14 +113,12 @@ public class Nurse extends Person {
         }
         
         public void evaluate(){
-            if(!this.c.primaryComplaint.equals("")){
+            if(this.c.primaryComplaint != null){
                 this.c.explain();
                 this.successPoints += 5;
             } else{
                 System.out.println("You must INTAKE the camper first.");
             }
-            
-            // ask camper for more details, to show how impacting, helps to determine severity of malady
         }
     
         public void treat(){

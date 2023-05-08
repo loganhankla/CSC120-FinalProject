@@ -38,7 +38,7 @@ public class Camper extends Person {
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "gauze";
-                System.out.println("\"I'm bleeding a lot right here, and it's really stinging. We were making a cookout dinner at our camp site, and I cut myself with the knife when I was cutting the chicken.\" \nYou take a closer look and notice lots of blood. There is a two-inch long cut down the length of the arm. It is a fairly deep cut but not dangerously so if treated appropriately.");
+                System.out.println("\n\"I'm bleeding a lot right here, and it's really stinging. We were making a cookout dinner at our camp site, and I cut myself with the knife when I was cutting the chicken.\" \nYou take a closer look and notice lots of blood. There is a two-inch long cut down the length of the arm. It is a fairly deep cut but not dangerously so if treated appropriately.");
             } else{
                 this.appropriateTreatment = "splint";
                 System.out.println("\"We were doing the low ropes course as a group, and I was the one doing the trust fall. I was falling, but I don't know what happened, and they didn't catch me.\" \nYou notice the camper is holding their arm close to their chest. \n\"I tried to break my fall, and I heard a popping sound. It hurts so bad. Right here.\" \nThe camper lets out a cry and points at a specific spot on their forearm. You gingerly take their arm in your grasp and notice a bump. Something looks out of place.");
@@ -54,14 +54,13 @@ public class Camper extends Person {
         //randomly generates severity level from 1-3
         Random rand = new Random();
         this.severity = rand.nextInt((3 - 1) + 1) + 1;
-        System.out.println("\nSeverity: " + this.severity);
+       // System.out.println("\nSeverity: " + this.severity);
         
         return this.severity;
     }
     
     public void explain(){
         // should set this.camper's explanation, using getSeverity(), gives different explanations of primaryComplaint
-        // if primaryComplaint is ankle, severity 3 is a break, severity 2 is a sprain, severity 1 is a walk it off/bruise/scrape
         this.getSeverity();
         if(this.primaryComplaint == "arm"){
             getArmExplanation();
@@ -100,7 +99,8 @@ public class Camper extends Person {
                 System.out.println("\nYou check for symptoms of a concussion, but the camper looks clear. You know that heads bleed a lot, so without a concussion, the injury should be treatable at camp.");
             } else{
                 this.appropriateTreatment = "ambulance ride";
-                System.out.println("[EXPLANATION: severe concussion]");
+                System.out.println("\nThe camper stumbles into a seat. Slowly, she says, \"I hit my head,\" but her speech is slurred.");
+                System.out.println(this.name + " holds her stomach and leans forward. She looks quit nauseated. You suspect a severe concussion and decide you are not equipped to treat her adequately as the Camp Nurse.");
             }
         }
     }
@@ -114,10 +114,12 @@ public class Camper extends Person {
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "benadryl";
-                System.out.println("\" [EXPLANATION]");
+                System.out.println("\"My arm is really itchy.\" You see redness and some little bumps that look like hives.");
+                System.out.println("\"" + this.name + ", did you touch any plants or animals?\" She nods her head, \"I touched a plant while we were hiking, and it started itching right after that.\" You nod and suspect an allergic reaction. Nothing you can't handle!");
             } else{
                 this.appropriateTreatment = "Epipen";
-                System.out.println("[EXPLANATION]");
+                System.out.println("The camper is wheezing and indicates that her throat is closing up. You make out one word from what " + this.name + " tries to say: allergic. \nYou notice the skin around her mouth and eyes is puffing up.");
+                System.out.println("\nYou quickly flip to her camper profile and see a list of severe allergies and a history of anaphylaxis. You know that you will call an ambulance, but what do you do to treat her in the meantime?");
             }
         }
     }
@@ -125,11 +127,14 @@ public class Camper extends Person {
     public void getAnkleExplanation(){
         if(this.severity == 1){
             this.appropriateTreatment = "bandaid";
-            System.out.println("\"[EXPLANATION]");
+            System.out.println("\"We were playing Camouflage in the meadow, and I tripped when I was running to my new hiding spot.\"");
+            System.out.println("\nYou ask " + this.name + " to remove their shoe and show you their ankle. You see a little scratch.");
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "ACE bandage";
-                System.out.println("[EXPLANATION]");
+                System.out.println("\"I was getting out of the canoe up at the pond, and it got so wiggly. I was off-balance and just twisted my foot in a rock in the water.\"");
+                System.out.println("\"Ouch!\" you say. " + this.name + " shakes their head when you ask if they heard a pop. You have them stand up and walk a little.");
+                System.out.println("\n\"It hurts to put too much weight on it, but I can generally move it around.\" They give you a 6/10 on their pain scale.");
             } else{
                 this.appropriateTreatment = "splint";
                 System.out.println("[EXPLANATION]");

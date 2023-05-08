@@ -55,6 +55,7 @@ public class Game {
                             this.becky.successPoints -= 25;
                         } else if(this.becky.c.severity == 3){
                             this.becky.successPoints -= 40;
+                            System.out.println("Oh no, that was bad. The severity of the camper's malady is high. ");
                         }
                         System.out.println("You treated the camper incorrectly. You've lost points, and now have " + this.becky.successPoints + " Success Points. \nYou can DISMISS the camper, or try to TREAT them again.");
                     }
@@ -101,8 +102,8 @@ public class Game {
         String response = game.userInput.nextLine().toUpperCase();
 
         if(response.equals("YES")){
-            System.out.println("Great! You'll work inside the Health Center, but first you need to make sure you have supplies.");
-            System.out.println("You have $200 in the Health Center WALLET. Check the SUPPLY STORE to see what you can BUY for the INVENTORY.");
+            System.out.println("\nGreat! You will earn and lose points based on how well you treat your campers' maladies. You'll work inside the Health Center, but first you need to make sure you have supplies.");
+            System.out.println("\nYou have $200 in the Health Center WALLET. Check the SUPPLY STORE to see what you can BUY for the INVENTORY.");
             game.play();
          }
         

@@ -14,10 +14,10 @@ public class Person {
     public void enter(){
         if(this.inHealthCenter == false){
             this.inHealthCenter = true;
-            System.out.println(this.name + " has entered the Health Center.");
+           // System.out.println(this.name + " has entered the Health Center.");
             // could include description of what they see inside
         } else{
-            System.out.println(this.name + " is/are already inside the Health Center.");
+            System.out.println(this.name + " is already inside the Health Center. Either TREAT or DISMISS them.");
         }  
     }
 

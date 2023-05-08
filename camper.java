@@ -137,7 +137,8 @@ public class Camper extends Person {
                 System.out.println("\n\"It hurts to put too much weight on it, but I can generally move it around.\" They give you a 6/10 on their pain scale.");
             } else{
                 this.appropriateTreatment = "splint";
-                System.out.println("[EXPLANATION]");
+                System.out.println(this.name + " takes a deep breath. \"My unit was messing around on the porch at the Lodge rehearsing our skit to perform at camp fire, and everybody was getting excited, and I got pushed off the edge of the porch. It really really hurts, and I'm pretty sure I heard a pop.\"");
+                System.out.println("\nYou take her leg in your arms, and she winces as you move it. You look at her ankle and the bones don't look set quite right. You know that you'll call her parents and get her to a hospital, but in the meantime, you think about how you will treat her at camp.");
             }
         }
     }
@@ -145,14 +146,15 @@ public class Camper extends Person {
     public void getStomachExplanation(){
         if(this.severity == 1){
             this.appropriateTreatment = "bandaid";
-            System.out.println("\"[EXPLANATION]");
+            System.out.println("\"I have a scratch on my belly.\" " + this.name + " pulls up the bottom of her shirt to show you a small scratch close to her belly button. She says she got poked with a stick.");
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "TUMS Antacid";
-                System.out.println("\" [EXPLANATION]");
+                System.out.println("\"My stomach is reallly upset.\" " + this.name + " doesn't think they ate anything weird but stresses that they have an upset stomach.");
             } else{
                 this.appropriateTreatment = "ambulance ride";
-                System.out.println("[EXPLANATION]: appendix burst");
+                System.out.println("\"My stomach hurts SO bad. It's never hurt this bad before.\" " + this.name + " points to the lower right of their abdomen. \"It hurts so much, especially when I walk or just move too much.\" They say they feel weak, too, and have the chills.");
+                System.out.println("\nYou begin to suspect appendicitis...");
             }
         }
     }

@@ -43,7 +43,7 @@ public class Game {
                 System.out.println("What item would you like to use?");
                 Scanner in = new Scanner(System.in);
                 String useInput = in.nextLine();
-                if(this.hCenter.inventory.containsKey(useInput)){
+                if(this.hCenter.inventory.containsKey(useInput) && this.hCenter.inventory.get(useInput) > 0){
                     this.hCenter.inventory.put(useInput, this.hCenter.inventory.get(useInput) - 1); //decreases stock
                     if(this.becky.c.appropriateTreatment.equals(useInput)){
                         this.becky.treat(); // increases success points 20
@@ -102,7 +102,8 @@ public class Game {
         String response = game.userInput.nextLine().toUpperCase();
 
         if(response.equals("YES")){
-            System.out.println("\nGreat! You will earn and lose points based on how well you treat your campers' maladies. You'll work inside the Health Center, but first you need to make sure you have supplies.");
+            System.out.println("\nGreat! You will earn and lose points based on how well you treat your campers' maladies. The game will terminate if you lose too many points or when you successfully treat enough campers. You'll work inside the Health Center, but first you need to make sure you have supplies.");
+            System.out.println("You can check OPTIONS at any point to see available commands.");
             System.out.println("\nYou have $200 in the Health Center WALLET. Check the SUPPLY STORE to see what you can BUY for the INVENTORY.");
             game.play();
          }

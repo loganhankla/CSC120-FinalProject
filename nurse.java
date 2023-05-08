@@ -51,7 +51,7 @@ public class Nurse extends Person {
         } else if(this.hc.inventory.containsKey(userInput)){
             if(this.wallet >= this.hc.supplyStore.get(userInput)){
                 this.hc.inventory.put(userInput, this.hc.inventory.get(userInput) + 1);
-                System.out.println(userInput + " has been added to the inventory. BUY another item for the inventory or call the NEXT camper in.");
+                System.out.println(userInput + " has been added to the inventory. BUY another item for the inventory, TREAT the current camper, or call the NEXT camper in.");
                 this.wallet -= this.hc.supplyStore.get(userInput); // subtract price of item from wallet
             } else{
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");

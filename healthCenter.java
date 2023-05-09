@@ -31,7 +31,7 @@ public class HealthCenter {
     /** adds names to list of camper names */
     public void makeNames(){
         this.campers = new ArrayList<Camper>();
-        this.campers.add(new Camper("Olga")); 
+        this.campers.add(new Camper("Izzy")); 
         this.campers.add(new Camper("Samantha")); 
         this.campers.add(new Camper("Madeleine")); 
         this.campers.add(new Camper ("Iliana")); 

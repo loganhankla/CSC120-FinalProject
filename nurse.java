@@ -60,7 +60,7 @@ public class Nurse extends Person {
             if(this.wallet >= this.hc.supplyStore.get(userInput)){
                 this.hc.inventory.put(userInput, 1);
                 this.wallet -= this.hc.supplyStore.get(userInput);
-                System.out.println(userInput + " has been added to the inventory. BUY another item for the inventory or call the NEXT camper in.");
+                System.out.println(userInput + " has been added to the inventory. BUY another item for the inventory, TREAT the current camper, or call the NEXT camper in.");
             } else{
                 System.out.println("You don't have enough money! Your wallet contains $" + this.wallet + ".");
             }
@@ -72,35 +72,28 @@ public class Nurse extends Person {
             //tells camper they're done, sends them out camper.exit()
             //update success points
             this.campersTreated += 1;
-            System.out.println(c.name + " smiles at you and exits the health center.");
+            System.out.println(c.name + " smiles at you and exits the Health Center.");
             this.c.exit();
             this.c = null;
             if(campersTreated < 5){
                 System.out.println("You have " + this.successPoints + " Success Points.");
-                System.out.println("Call the NEXT camper when you're ready.");
-            } else{ // move to play?
+                System.out.println("\nCall the NEXT camper when you're ready.");
+            } else{
                 System.out.println("You have completed the game with " + this.successPoints + " Success Points.");
-                if(this.successPoints >= 100){
+                if(this.successPoints >= 110){
                     System.out.println("Congratulations! You won!!");
                 } else{
                     System.out.println("You FAILED.");
                 }
             }
-            // ask if nurse is ready for next camper, if so, next() but only until campersTreated = 5 or successPoints = 100 or something
         }
     
         public void next(){
-           // this.c.name = this.hc.campers.get(this.campersTreated + 1); //would move down index of arraylist, how to reference game?
-           // this.campName = this.hc.campers.get(this.campersTreated + 1);
-           // this.c.name = campName;
-            int index = this.campersTreated + 1;
+            int index = this.campersTreated;
             this.c = this.hc.campers.get(index);
-
-
-           // works just below
             this.c.enter();
-            System.out.println("A camper, " + this.c.name + ", walks in and waits for INTAKE.");
-            //initialize & calls next camper in to health center, enter()
+            System.out.println("The camper waits for INTAKE.");
+            //initialize & calls next camper in to health center
         }
     
         public void intake(){
@@ -108,8 +101,6 @@ public class Nurse extends Person {
             this.c.complain();
             System.out.println("\nYou want to know more before treating them, so you must EVALUATE them.");
             this.successPoints += 5;
-            // after next(), if scanner input asks for malady
-            // ask camper for primary complaint, response should give random from camper complain()
         }
         
         public void evaluate(){

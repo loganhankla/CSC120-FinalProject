@@ -100,7 +100,7 @@ public class Camper extends Person {
             } else{
                 this.appropriateTreatment = "ambulance ride";
                 System.out.println("\nThe camper stumbles into a seat. Slowly, she says, \"I hit my head,\" but her speech is slurred.");
-                System.out.println(this.name + " holds her stomach and leans forward. She looks quit nauseated. You suspect a severe concussion and decide you are not equipped to treat her adequately as the Camp Nurse.");
+                System.out.println(this.name + " holds her stomach and leans forward. She looks quite nauseated. You suspect a severe concussion and decide you are not equipped to treat her adequately as the Camp Nurse.");
             }
         }
     }
@@ -110,7 +110,7 @@ public class Camper extends Person {
             this.appropriateTreatment = "aloe";
             System.out.println("\"My skin is really red, and it hurts to touch.\"");
             System.out.println("\nYou notice the camper's skin is red all over. You ask, \"Did you wear sunscreen today?\"");
-            System.out.println("The camper timidly shakes their head. You don't see any blistering on their skin, so you identify the camper's malady as a low-grade sunburn.");
+            System.out.println("\nThe camper timidly shakes their head. You don't see any blistering on their skin, so you identify the camper's malady as a low-grade sunburn.");
         } else{
             if(this.severity == 2){
                 this.appropriateTreatment = "benadryl";
@@ -138,7 +138,7 @@ public class Camper extends Person {
             } else{
                 this.appropriateTreatment = "splint";
                 System.out.println(this.name + " takes a deep breath. \"My unit was messing around on the porch at the Lodge rehearsing our skit to perform at camp fire, and everybody was getting excited, and I got pushed off the edge of the porch. It really really hurts, and I'm pretty sure I heard a pop.\"");
-                System.out.println("\nYou take her leg in your arms, and she winces as you move it. You look at her ankle and the bones don't look set quite right. You know that you'll call her parents and get her to a hospital, but in the meantime, you think about how you will treat her at camp.");
+                System.out.println("\nYou take her leg in your arms, and she winces as you move it. You look at her ankle and the bones don't look set quite right. You know that you'll call her parents and get her to a hospital, but you think about how you will treat her in the meantime at camp.");
             }
         }
     }

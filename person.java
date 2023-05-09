@@ -14,8 +14,7 @@ public class Person {
     public void enter(){
         if(this.inHealthCenter == false){
             this.inHealthCenter = true;
-           // System.out.println(this.name + " has entered the Health Center.");
-            // could include description of what they see inside
+            System.out.println(this.name + " has entered the Health Center.");
         } else{
             System.out.println(this.name + " is already inside the Health Center. Either TREAT or DISMISS them.");
         }  
@@ -26,7 +25,7 @@ public class Person {
             this.inHealthCenter = false;
             //System.out.println("You have exited the Health Center.");
         } else{
-            //System.out.println("You are already outside of the Health Center.");
+            System.out.println("This person is already outside of the Health Center.");
         }
     }
 

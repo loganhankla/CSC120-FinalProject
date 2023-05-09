@@ -1,15 +1,18 @@
 import java.util.Hashtable;
 import java.util.ArrayList;
 
-//import javax.swing.RowFilter.Entry;
-
-
 public class HealthCenter {
-    public Hashtable<String, Integer> inventory; //int is stock number
-    public Hashtable<String, Integer> supplyStore; // int is price
+    
+    /** Hashtable with item and number in stock at the Health Center */
+    public Hashtable<String, Integer> inventory; 
+    
+    /** Hashtable with item and price at the Supply Store */
+    public Hashtable<String, Integer> supplyStore; 
+    
+    /** List of camper names */
     public ArrayList<Camper> campers;
-   // public Camper currentCamper;
 
+    /** Health Center constructor, adds items to supply store */
     public HealthCenter(){
         this.inventory = new Hashtable<String, Integer>();
         this.supplyStore = new Hashtable<String, Integer>();
@@ -25,19 +28,18 @@ public class HealthCenter {
         this.supplyStore.put("ambulance ride", 50);
     }
 
+    /** adds names to list of camper names */
     public void makeNames(){
-        //make ArrayList of camper names
         this.campers = new ArrayList<Camper>();
-        this.campers.add(new Camper("Izzy")); 
+        this.campers.add(new Camper("Olga")); 
         this.campers.add(new Camper("Samantha")); 
         this.campers.add(new Camper("Madeleine")); 
         this.campers.add(new Camper ("Iliana")); 
         this.campers.add(new Camper ("Qiaochu")); 
         this.campers.add(new Camper ("Michelle")); 
-        //System.out.println(this.camperNames);
-       // return this.camperNames;
     }
 
+    /** Getter method that prints inventory contents nicely. */
     public void seeInventory(){
         System.out.println("==============Health Center Inventory============== \n             (item (number in stock)): \n");
         this.inventory.entrySet().forEach( entry -> {
@@ -45,17 +47,18 @@ public class HealthCenter {
         });
     }
 
+    /** Getter method that prints Supply Store contents nicely. */
     public void seeSupplyStore(){
         System.out.println("\n==============Supply Store============== \n The store has unlimited supply of the following items: \n ");
         this.supplyStore.entrySet().forEach( entry -> {
             System.out.println(entry.getKey() + ": $" + entry.getValue() + " each use");
-    
-            /// ONLY PRINTS SOME ITEMS SOMETIMES??
         });
-    
         System.out.println("\nType BUY if you would like to buy something.");
     }
 
+    /**
+     * Main method to test functions
+     */
     public static void main(String[] args) {
         HealthCenter healthCenter = new HealthCenter();
         healthCenter.seeSupplyStore();

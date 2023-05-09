@@ -3,24 +3,30 @@ import java.util.Hashtable;
 
 public class Game {
 
+    /** Nurse for the game: what the user plays */
     private Nurse becky;
+
+    /** Health Center used for the game */
     private HealthCenter hCenter;
+
+    /** Current camper */
     private Camper c;
+
+    /** User's input */
     private Scanner userInput;
     
+    /** Game constructor */
     public Game(){
         this.becky = new Nurse("Nurse");
         this.hCenter = new HealthCenter();
         this.hCenter.makeNames();
         this.becky.setHC(this.hCenter);
         this.userInput = new Scanner(System.in);
-
     }
 
-
+    /** Main play method for game that takes expected command input; stops the game when end conditions are met or user fails. */
     public void play(){
         boolean keepGoing = true;
-        // while loop of running, have scanner open and if statements
 
         while(keepGoing){
             String userInput = this.userInput.nextLine().toUpperCase();
@@ -104,7 +110,6 @@ public class Game {
             } else{
                 System.out.println("Command not understood. Check OPTIONS.");
             }
-             
 
             if(this.becky.campersTreated >= 5 || userInput.equals("QUIT") || this.becky.successPoints < 0){ // terminates game play loop once treated enough
                 keepGoing = false;
@@ -114,13 +119,13 @@ public class Game {
         System.out.println("\n*****Game over!***** \n Thanks for playing! \n********************\n");
     }
 
+    /**
+     * Main method where gameplay happens; initializes game, greets user and takes input, starts play() method
+     */
     public static void main(String[] args) {
         
         Game game = new Game();
-
-        // gets the game started
         System.out.println("Welcome to summer camp! You've been hired as the Camp Nurse. Are you ready to begin (yes/no)?");
-        
         String response = game.userInput.nextLine().toUpperCase();
 
         if(response.equals("YES")){
@@ -129,9 +134,6 @@ public class Game {
             System.out.println("\nYou have $200 in the Health Center WALLET. Check the SUPPLY STORE to see what you can BUY for the INVENTORY.");
             game.play();
          }
-        
-        
         game.userInput.close();
-        
     }
 }

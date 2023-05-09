@@ -23,9 +23,6 @@ public class HealthCenter {
         this.supplyStore.put("splint", 40);
         this.supplyStore.put("TUMS Antacid", 20);
         this.supplyStore.put("ambulance ride", 50);
-
-
-    
     }
 
     public void makeNames(){

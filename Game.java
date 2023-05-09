@@ -1,4 +1,3 @@
-//import People.director;
 import java.util.Scanner;
 import java.util.Hashtable;
 

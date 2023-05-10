@@ -17,10 +17,10 @@
   
 ## Additional Reflection Questions
  - What was your **overall approach** to tackling this project?
-
+    My overall approach derived from experience working at a summer camp, and I wanted to focus on the Nurse class. My methods mainly focused around information and actions the Nurse would need. I used a lot of if/else statements to try to account for many different possible inputs. I wanted my approach to be fairly simple, but such that I would later be able to go in and add complexity should I want to/have time. I first brainstormed the methods and attributes that came to mind and made basic class diagrams. Then, after grouping methods and attributes into classes, I started implementing them with code. Sometimes, I found additional methods were needed (ex. getters) or that certain methods or attributes would do better elsewhere. I also came up with additional attributes that helped do things behind the scenes but didn't necessarily come to mind when I first did my brainstorming (ex. campersTreated and successPoints). My approach involved constantly recompiling and running my program, often with a large list of errors that I would go through and debug one by one. I also sought help in office hours.
 
  - What **new thing(s)** did you learn / figure out in completing this project?
-    Random, Hashtable, Scanner
+    The main things that I really figured out were the Java built-in classes, like Random, Hashtable, and Scanner. It took a lot of Googling and going through questions and answers in StackExchange and the like, but I really started to figure out how to use their methods and structures. I now feel quite comfortable using Hashtables and accessing keys/values. Scanner was a big hurdle for me at first, but I now feel like I have gained a better understanding of how it works and where/how to seek user input.
 
  - Is there anything that you wish you had **implemented differently**?
     I wish I had move more of what's under TREAT in play() in the Game class to the treat() method in Nurse. Most of what I wanted in treat() wound up in play() in Game because of how accessing things (mostly appropriateTreatment from what I remember) was working.
@@ -32,6 +32,8 @@
 
  - What was the most helpful **piece of feedback** you received while working on your project? Who gave it to you?
     During one of the demos/feedback workshops, someone I sat next to gave me really good advice about how to implement the Scanner and gave me the idea for a play() method, which became extremely helpful and helped to alleviate a lot of the stress I was having about how to implement that part. I unfortunately don't remember their name.
+
+    Another helpful piece of feedback was from Jordan in the early stages of the project: to go more simple. I didn't need to do a project at the complexity of what I was originally thinking.
 
  - If you could go back in time and give your past self some **advice** about this project, what hints would you give?
     Simplify it early. I got very overwhelmed at the beginning of the project because of everything I thought it entailed. Another hint would be to learn from others and use similar methods to them. I would also have had friends play it earlier on to catch more bugs and design flaws. 

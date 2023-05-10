@@ -32,5 +32,4 @@ public class Person {
             System.out.println("This person is already outside of the Health Center.");
         }
     }
-
 }
